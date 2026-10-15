@@ -1,0 +1,1 @@
+export function Footer() { return <footer><a href="#" className="wordmark">ARC</a><span>Built in Chennai. Designed for everywhere.</span><span>© {new Date().getFullYear()} ARC</span><a href="#">Back to the beginning ↑</a></footer>; }
