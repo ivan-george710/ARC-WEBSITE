@@ -1,98 +1,162 @@
 # ARC website handoff
 
-## What was built
+Updated 16 October 2026. Local repository implementation; no deployment performed.
 
-A complete eight-scene ARC brand website. Black, graphite, steel and restrained copper form the palette. Locally hosted Geist variable type, huge editorial statements, a reusable metallic SVG arc and a single procedural human study carry the visual narrative. All demos run entirely in the browser. There are no accounts, API calls, authentication, pricing, database or backend.
+## Current experience
 
-This is a local repository build; it has not been published to an external host.
+The site preserves the premium black / graphite / steel identity, local Geist font, ARC blue, minimal navigation, metallic line motif and cinematic GSAP motion. The narrative is now six parts:
+
+1. **Hero:** “EVERY BODY HAS AN ARC.”, large ARC reveal, “Built around change.” and a faint phone reflection. Opening type is larger; chapter numbering is removed.
+2. **Problem:** a rigid phone plan surrounded by exactly six life variables: Work, Travel, Time, Injury, Equipment and Goals. The resolution is two oversized statements: “YOUR LIFE CHANGES.” and “YOUR FITNESS SHOULD TOO.” It leads directly into the app.
+3. **Product walkthrough:** one physical phone, one time-driven sequence, with training as the main example. Time, location, shoulder discomfort and a new running goal change the same plan. A brief module overview establishes Nourish, Recover and Progress without new sections. The sequence resolves into ARC.
+4. **Personalization:** one quieter day-one / day-200 statement with a subtle Day 1 → Day 30 → Day 100 → Day 200 context trace. No repeated weekly timeline or feature explanation.
+5. **Vision:** the original seven-node graph/network is preserved. Fragmented wellness categories connect around ARC. Large “FITNESS IS FRAGMENTED.” and “THE SYSTEM IS ARC.” statements establish the company’s wider ambition.
+6. **Final:** the ARC line returns around “FIND YOUR ARC.”, the original supporting change statement, Follow Our ARC control and minimal footer. No feature recap.
+
+## What was consolidated and removed
+
+- The old Human, System, Life changes and Product sections were consolidated into `ProductWalkthrough` plus a short `PersonalizationScene`.
+- Removed `HumanScene.tsx`, `HumanExperience.tsx`, `SystemScene.tsx`, `LifeScene.tsx` and the previous `ProductScene.tsx`.
+- Removed the old 400svh journey, standalone system demos, repeated human/adaptation explanations and the separate phone beauty-shot section.
+- Removed chapter / navigation / edition numbering and obsolete chapter components, styles, body fallback, scene animations, old scenario datasets and imperative scroll driver.
+- Removed **@react-three/fiber, @react-three/drei, three and @types/three** from both manifest and lockfile. No model, texture or loader asset existed in `public/`. No canvas or 3D renderer remains in application source.
+- Also removed the unused Motion package and its provider after the last Motion components were consolidated. GSAP, CSS and SVG now handle motion. The uninstall operations removed 60 packages in total; no bundle-size percentage is claimed.
 
 ## Architecture
 
-- `app/page.tsx`: scene composition only.
-- `app/layout.tsx`: metadata, locally loaded font, global motion provider and skip link.
-- `app/globals.css`: visual tokens, scene styles, breakpoints and reduced-motion overrides.
-- `components/layout/`: fixed minimal navigation, keyboard-trapped overlay menu and footer.
-- `components/scenes/`: eight independently owned scene components.
-- `components/motion/Experience.tsx`: Lenis, GSAP ticker integration, reusable reveal and SVG draw behavior, desktop cursor and cleanup.
-- `components/ui/`: chapter labels, reusable arc paths, and five device interface concepts.
-- `components/three/HumanExperience.tsx`: the only R3F canvas, isolated model architecture and WebGL error fallback.
-- `lib/gsap/`: central GSAP / ScrollTrigger registration.
-- `lib/constants/system.ts`: system demo scenarios and copy.
-- `public/fonts/`: Geist variable font and OFL license. Loaded through Next local font; no Google Fonts runtime dependency.
+- `app/page.tsx`: the existing six Home narrative components; shared navigation/footer now live in the root layout.
+- `app/layout.tsx`: metadata, local Geist font, global experience provider, shared accent variable, persistent navigation/footer and a route-safe skip link to `#main`.
+- `app/globals.css`: retained global visual system, navigation, shared foundations and responsive rules. Dead scene selectors were removed.
+- `app/product.css`: shared physical device, coherent app UI and rigid-plan / reflection variants.
+- `app/walkthrough.css`: consolidated composition, large narrative type, walkthrough stage, functional body interaction, personalization and responsive behavior.
+- `components/scenes/ProductWalkthrough.tsx`: one persistent device, environmental text, module rail, progress line and playback controls.
+- `components/motion/useWalkthrough.ts`: visibility / reduced-motion / tab-lifecycle integration; attaches all presentation tracks to the controller’s central timeline; settles interruptions on scroll-away, resize, window blur, tab hiding and menu opening.
+- `lib/animations/presentation.ts`: sequential headline and screen exits/entrances, goal reveal, body and restrained phone movement on the controller timeline.
+- `lib/animations/language.ts`: shared reveal, exit, morph, device and microinteraction easing plus phase timings.
+- `lib/animations/walkthrough.ts`: GSAP clock and playback controller. Activation, pause, explicit resume, replay, manual selection, reduced motion and cleanup are owned here.
+- `lib/constants/walkthrough.ts`: sequence start times, duration, visibility thresholds, story copy and typed phone scenarios. This is the single pacing source.
+- `components/ui/WalkthroughScreens.tsx`: persistent `PhoneShell` chrome plus dedicated `BaselineTrainingScreen`, `TimeAdaptationScreen`, `TravelAdaptationScreen`, `BodyAdaptationScreen`, `GoalAdaptationScreen`, four module layouts and the final ARC resolve. Every screen owns its content; no training object is spread into recovery.
+- `components/ui/DeviceFrame.tsx`: one physical device shell; no duplicate phone trees.
+- `components/ui/PhoneScreen.tsx`: shared app typography, navigation icons, metrics, exercise lists, nutrition, recovery and progress graphics. Gradient IDs use React useId.
+- `components/ui/BodyAvatar.tsx`: existing 2D body asset; exactly one external avatar in the walkthrough body scene, with no duplicate inside the phone.
+- `lib/constants/product.ts`: shared screen types and base app modules.
+- `lib/constants/brand.ts`: official app accent **#5B8BEF**, derived from supplied opaque ARGB `FF5B8BEF`. The root CSS variable drives DOM/SVG colors. The static favicon also carries this hex.
+- `scripts/verify-product.mjs`: isolated-screen content checks, persistent chrome counts and tests of the actual GSAP controller/presentation.
+- `scripts/verify-walkthrough-browser.mjs`: full desktop/mobile autoplay, replay, pause, scroll-away/re-entry, six mobile viewport fixtures, app-content bounds, navigation state and screenshots. Uses an externally available Playwright installation; set `PLAYWRIGHT_MODULE` to its `index.mjs` if it is not locally installed. `ARC_QA_URL` defaults to localhost:3000 and `BROWSER_CHANNEL` defaults to msedge.
+- `scripts/verify-typography.mjs`: actual local Geist glyph metrics at 12 desktop, tablet, phone and landscape fixtures. This is a fit calculation, not browser geometry verification.
+- `scripts/serve.mjs`: localhost-only static export preview server.
 
-## Dependencies
+## Automatic walkthrough behavior
 
-Runtime: Next.js, React, React DOM, GSAP / ScrollTrigger, Lenis, Motion, Three.js, React Three Fiber and Drei. Tailwind CSS 4 is integrated through PostCSS; custom CSS handles the scene-specific editorial layout. Development: strict TypeScript, ESLint, Next ESLint configurations, Tailwind PostCSS integration and relevant type definitions. Exact resolved versions are recorded in `package-lock.json`.
+The stage starts when approximately 60% of its viewable extent is visible. For a mobile stage taller than the viewport, visibility is normalized against the viewport height so activation remains possible. There is no pin, scroll lock, snap, wheel interception or extra scroll-height requirement in the walkthrough. Users can watch in place or keep scrolling at any time.
 
-SplitText and MorphSVG were not needed: individual SAME letters and SVG stroke drawing keep these particular effects simple.
+One central GSAP timeline owns the **22-second** clock, scene selection, progress and every walkthrough visual track. Its named states are `baseline`, `time`, `travel`, `body`, `goal`, `system`, `nourish`, `recover`, `progress`, `complete`. React controls accessibility and playback controls; the timeline controls all visibility/transforms and the active phone navigation. The physical phone, status bar, ARC header, bottom navigation and home indicator each exist exactly once. Ten isolated content buffers contain distinct screen components; inactive buffers are inert and hidden from accessibility. No full app chrome is duplicated in the buffers.
 
-## Scenes
+Circumstance headlines enter before the phone responds (300ms lead; 500ms for travel and goal). Travel and goal text also have a short secondary-line reveal. The outgoing app content moves up 18px, blurs to 8px, scales to .985 and fully exits before the incoming screen starts below at scale 1.015. Major screen transitions take approximately 740ms with a 40ms clear gap. Module transitions are shorter (420ms) within one-second tabs. Headline exits complete before the next entrance. All tracks use the shared premium easing; there are no independent timeout chains or CSS app-screen animations.
 
-1. **Hero / The ARC:** near-black opening, “EVERY BODY HAS AN ARC.”, a scroll-drawn metallic line, large ARC reveal and “Built around change.” A sticky viewport gives the opening room to breathe.
-2. **The problem:** “FITNESS PLANS ASSUME YOUR LIFE STAYS THE SAME.” SAME letters dislocate as life pressures gather around a rigid PUSH / PULL / LEGS / REST plan. The plan fragments before the resolution: “Your life changes. Your fitness should too.”
-3. **The human:** a neutral, abstract metallic human sculpture. Scroll moves through strength, mobility, recovery and goals; buttons allow direct exploration. Body regions change material and light. The scene ends with “ARC ADAPTS WITH YOU.”
-4. **The system:** an accessible four-tab story for Train, Nourish, Recover and Evolve. Each has three interactive circumstances. Training switches equipment, nutrition switches context, recovery shifts toward adapted movement and professional support, and progress brings context together. Demo values are illustrative.
-5. **Life changes:** a six-chapter journey from Monday through six months. Desktop scrolling advances a sticky full-screen narrative. A circular time / context indicator changes from 60 minutes to 10, travel, recovery, progress and a 10K goal. Direct chapter controls are available. A separate spacious day-200 typography moment follows.
-6. **The product:** a DOM / CSS perspective phone with Home, Workout, Nutrition, Recovery and Progress concept screens. Scroll cycles screens and moves the phone. Controls allow direct selection. A chart expands outside the device; the phone fades before “THE APP IS JUST THE INTERFACE. THE SYSTEM IS ARC.”
-7. **The vision:** seven separated wellness nodes move toward a shared ARC center; connections appear as the visitor scrolls. The restrained network illustrates the long-term company vision, not currently available professional services.
-8. **The ending:** the opening arc returns behind “FIND YOUR ARC.” A clean final statement, expandable Follow Our ARC control, and minimal Chennai footer complete the journey.
+| Clock | Story / phone response |
+| --- | --- |
+| 0-2.3s | YOUR PLAN. Stable Chest + Triceps / 60 MIN / GYM, four exercises |
+| 2.3-5.7s | Meeting ran late; dedicated 10 MIN express session, three exercises |
+| 5.7-9.1s | Travelling / No gym; HOTEL / HOME, dumbbell and bodyweight exercises; no inherited 10 MIN label |
+| 9.1-12.6s | Shoulder check-in; external body enters only after travel has left; pressing paused / movement available / guidance; no location or old exercise list |
+| 12.6-16.5s | Body fully exits; six months later / goal changed; BUILD MUSCLE reveals RUN A 10K; weekly run + strength architecture |
+| 16.5-17.7s | TRAIN weekly summary |
+| 17.7-18.7s | NOURISH calorie ring and meal context |
+| 18.7-19.7s | RECOVER recovery rhythm and mobility |
+| 19.7-20.9s | PROGRESS chart, consistency and strength |
+| 20.9-22s | ARC / BUILT AROUND YOU; completion exposes Replay |
 
-## Assets and placeholders
+The breadth sequence retains one ONE CONTEXT / ONE SYSTEM headline while the app tabs change. The body never appears inside a phone screen in this walkthrough. Desktop phone movement is limited to 10% of the phone width during body adaptation; compact layouts keep it fixed.
 
-- The human is an intentionally procedural abstract sculpture made of ellipsoids. Replace the `parts` assembly inside `HumanExperience.tsx` with a licensed, compressed neutral anatomical GLB when a final art-directed model exists. Keep its current lazy loading, fallbacks and isolated ownership.
-- Phone screens, charts, nutrition values and the life journey are product concepts, explicitly identified as illustrative. They are not production screenshots, measured results or live product claims.
-- The follow control opens an honest launch-status message. Official social handles, contact address and follow destination were not provided; no addresses or links were invented. Wire this to ARC’s confirmed destination before public launch.
-- No stock photography, external model files, texture downloads or video are required. Arc artwork and favicon are original SVG; font licensing is included.
+The activation latch persists for the mounted experience. Crossing the visibility threshold repeatedly cannot replay the sequence. Scrolling below 20% visibility pauses; returning leaves it paused with a Resume control. Hiding the browser tab also pauses; returning does not resume an already-started sequence. Replay is explicit. Module selection pauses the clock and seeks to that module; Resume continues from there. Pause is available throughout playback. Every interruption seeks into a readable hold within the current moment, including the complete screen and goal reveal, rather than freezing an in-between transition. Resize uses CSS reflow and this same settling behavior; no new timeline is constructed. Mobile browser address-bar height changes are ignored on coarse pointers unless width changes.
 
-## Performance decisions
+Visibility observers, media-query listeners, document listeners and the timeline are disconnected/killed on cleanup. No independent timeout chain, continuous body animation or background canvas is used.
 
-- Only one WebGL canvas; its component is dynamically imported and mounted near the human scene using IntersectionObserver.
-- R3F renders on demand, pixel ratio is capped at 1.5, lighting is simple, and no heavy environment maps, postprocessing, shadow pipelines or continuous 3D animation loops are used.
-- Canvas unmounts outside its scene. CSS silhouette is available during loading, for mobile, reduced motion and WebGL failure.
-- Lenis updates ScrollTrigger through one GSAP ticker callback; ticker and listeners are removed on cleanup.
-- GSAP matchMedia contexts revert their animations and ScrollTriggers on unmount or media-query changes.
-- Reusable reveal effects use opacity and transforms. The network uses SVG and the phone uses DOM / CSS.
-- Fonts are self-hosted; there are no external runtime data or image requests.
-- Next static export supports simple static hosting. Application interactivity has no server dependencies.
+## 2D body asset provenance and replacement
 
-## Mobile, accessibility and reduced motion
+There is **no actual standalone ARC app body asset or app source component in this repository**. The available reference was the existing inline SVG inside `PhoneScreen`’s recovery concept. Its 72×120 geometry and shoulder/knee/back selection mapping were extracted unchanged into `BodyAvatar.tsx`. Both the walkthrough’s functional shoulder graphic and the phone recovery view reuse that component.
 
-Below 768px, sticky long-scroll scenes become compact narrative layouts, the body uses its static silhouette, the phone faces forward, custom cursor is absent and the journey uses direct chapter controls. System tabs support arrow keys, Home and End; all story controls expose their selected state. The navigation traps focus, closes on Escape and restores focus. A skip link, semantic headings, visible focus outlines and native controls are provided.
+This is an honest isolated placeholder based on the website’s existing product graphic, not a claim that the production app asset has been supplied. Replace the SVG / coordinate mapping in this single component with ARC’s real 2D avatar when available, retaining its `area` interface. No new 3D substitute was created.
 
-Reduced-motion preference disables Lenis, scroll choreography, transitions, entry effects, cursor and WebGL. It removes long sticky journey spacing and keeps all narrative content accessible with direct controls.
+## Typography and composition
 
-## Commands
+Primary statements use responsive clamp sizing. Desktop ranges include:
 
-Requires Node.js 20.9 or later; this workspace uses Node 22.
+- Hero opening statement: 25–62px, with the oversized ARC wordmark retained.
+- Problem headline: 58–112px; life-change resolutions: 70–190px.
+- Walkthrough environmental type: 52–112px; completed ARC moment: 150–320px.
+- Personalization opening: 32–94px; day-200 statement: 68–190px.
+- Fragmentation headline: 68–188px; system statement: 80–210px.
+- Final brand moment: 90–260px.
+
+Small supporting text remains restrained. There are no visible chapter numbers or new feature grids. The problem uses a denser side-by-side composition on desktop. Removing entire repeated sections, particularly the 400svh timeline, supplies most of the page-length reduction.
+
+## Mobile and reduced motion
+
+Mobile keeps the headline above a centered phone and supporting line. The stage uses `100dvh`, with a short-height variant below 680px. Phone width is constrained by both 80vw / 290px and available viewport height (minus 310px, or 260px on short devices), so its entire screen and navigation remain visible. App spacing and type scale together using the physical device container width. The one external body graphic sits behind the lower phone edge during body adaptation; its desktop label is omitted on mobile to prevent collisions. No app content is removed on short screens.
+
+The Problem labels share a wrapping rail rather than absolute offsets, so GOALS and EQUIPMENT cannot be orphaned. The phone has no Z rotation and only the bounded desktop body-scene shift described above. Global main/hero content clipping has been removed; only decorative SVG artwork and the physical device screen use local clipping. The graph has a separate vertical mobile branch layout with all seven nodes. Safe-area gutters, 44px controls, compact menu, touch cursor removal and natural landscape vertical flow apply across the site. All four module controls remain available.
+
+With `prefers-reduced-motion`, autoplay cannot start. Previous / Next and module controls expose every moment manually. The clock remains paused, perspective/copy transitions are removed, and the global provider disables Lenis and scroll choreography. A live preference change pauses an active sequence; re-enabling motion leaves previously started playback paused until resumed.
+
+Native buttons, visible keyboard focus, pressed-state module controls, a concise playback live region, pause/resume and the existing keyboard-trapped navigation support accessibility. The six-scene narrative remains readable in the server-rendered page; the default app plan is present before hydration.
+
+## Dependencies and commands
+
+Runtime dependencies: Next.js, React, React DOM, GSAP and Lenis. Tailwind CSS 4 / PostCSS, strict TypeScript and ESLint remain configured. Self-hosted Geist and its OFL license are in `public/fonts/`. No backend, accounts, API, database or environment variables are required.
 
 ```sh
 npm install
 npm run dev
 npm run lint
 npm run typecheck
+npm test
 npm run build
-npm run start
+npm start
 ```
 
-`dev` serves http://localhost:3000. Build emits `out/` for static hosting in addition to Next’s build. `start` serves the exported `out/` directory through a small localhost-only static file server. Use `npm.cmd` under PowerShell if execution policy blocks npm.ps1. No secrets or environment variables are needed.
+Use `npm.cmd` under PowerShell if npm.ps1 is blocked. Development serves http://localhost:3000. The static preview server resolves extensionless `/about` to `out/about.html`, including when Next emits an adjacent RSC-data directory named `about`. The production build emits `out/`; `npm start` serves it locally. Requires Node 20.9 or later; this workspace uses Node 22.
 
-## Verification
+## Validation
 
-- Dependency installation: PASS. Interrupted large registry downloads were recovered with range downloads, verified against the registry SHA-512 integrity values, then installed successfully from npm cache. No temporary archive paths are used as project dependencies.
-- `npm run lint`: PASS, no errors or warnings.
-- `npm run typecheck`: PASS under strict TypeScript.
-- `npm run build`: PASS on Next.js 16.4.1. All pages prerendered; static `out/` export generated successfully.
-- `npm start`: PASS; the localhost static server starts correctly.
-- HTTP smoke checks: PASS. Home returns 200; all five navigation targets and eight narrative scenes are present; all 12 referenced script, stylesheet, font and icon assets return 200; SVG MIME type is correct; missing routes return 404.
-- Browser visual QA: NOT RUN. The session exposed no browser surfaces; attempting to open the in-app browser returned “Browser is not available: iab.” Desktop/mobile layout, horizontal overflow, live scrolling, focus interaction, hydration console and GPU appearance remain unverified in an actual browser. Responsive and reduced-motion code paths were implemented and inspected, but are not claimed as visually tested.
-- No Lighthouse score or real-device performance measurement is claimed.
+- `npm.cmd run lint`, `npm.cmd run typecheck`, `npm.cmd test`, `npm.cmd run build`: PASS.
+- Controller/presentation tests sample 3,963 frames across three complete replays, requiring at most one visible screen and one visible headline (opacity threshold .001). They also check body isolation, clean replay reset, interruption settling, visibility lifecycle and reduced motion.
+- Real browser QA: headless Microsoft Edge, complete 22-second autoplay at 1440x900 and 390x844, all ten states captured and reviewed, no competing screens or headlines, replay/pause and scroll-away/re-entry checked.
+- Every state checked at 320x568, 360x800, 375x667, 375x812, 390x844 and 430x932 with reduced-motion manual navigation. Full phone bounds, app content bounds, bottom navigation visibility and correct selected navigation tab are asserted. Screenshots are saved under ignored `qa/walkthrough/`.
+- These are browser viewport tests, not physical-device or iOS Safari testing. No Lighthouse score or measured bundle reduction is claimed. No deployment was performed.
 
-## Known limitations and next improvements
+## Remaining placeholders and recommended work
 
-1. Confirm official company contact / follow URLs and replace the launch-status disclosure before public release.
-2. Commission the final sculptural human asset. The current procedural model is a visual placeholder, with an isolated replacement point.
-3. Review all concept screens, sample nutrition values and recovery language against ARC’s actual product and brand requirements. No diagnosis is provided by the demo.
-4. Perform real-device visual QA on iOS Safari and Android Chrome, including browser chrome resizing, reduced motion, WebGL unavailable, and keyboard navigation.
-5. Capture Lighthouse / Web Vitals on the eventual host and tune animation lengths after user testing. No numeric performance score is claimed.
-6. Add a confirmed canonical URL and branded Open Graph image after the production domain and final artwork are supplied.
-7. Browser-based verification depends on the session’s preview capabilities; see Verification above for what was actually exercised.
+- Supply the actual ARC app 2D body SVG/component and replace the isolated existing website reference.
+- App UI, workout/nutrition values and charts remain illustrative product concepts, not production screenshots or promised outcomes. Review them against the real product before launch.
+- Recovery language describes adaptation and qualified support; the demo does not diagnose discomfort or injuries.
+- Official contact/social destinations were not supplied. Follow Our ARC still opens the existing launch-status disclosure rather than an invented URL.
+- Physical-device / iOS Safari testing and measured Web Vitals remain follow-up work; desktop/mobile Edge viewport QA is complete.
+- Add a confirmed canonical URL and final Open Graph artwork when the production domain and approved assets are supplied.
+
+## About page (16 October 2026)
+
+- Added a separate `/about` route in `app/about/page.tsx`, with its own metadata. The Home narrative remains at `/`; the founding story is not part of its scroll experience.
+- The About page is a single editorial article: oversized two-part opening, the supplied founding story, an anonymous FOUR PEOPLE / ONE QUESTION / ONE IDEA brand moment, the meaning of ARC and day-two-hundred statement, a concise philosophy, then WE'RE JUST GETTING STARTED / Find your ARC and an EXPLORE ARC link back to `/`. No invented biographies, titles, portraits, feature cards or numbered steps.
+- `app/about/about.css` scopes all page-specific layout. Body copy is 18-24px and capped at 720px. Mobile has 24px gutters and responsive editorial statements. Existing graphite surfaces, Geist typography and ARC blue remain in use.
+- The background reuses `ArcLine` rise/wave SVG geometry, with two low-opacity blue paths. CSS draw/fade cycles (28/34 seconds) and subtle translation cycles (32/38 seconds) loop indefinitely without scrolling, particles, WebGL, JavaScript frame loops or animated blur filters. Reduced motion removes all looping animation and shows static paths.
+- `components/motion/Experience.tsx` explicitly excludes `.about-arc` from Home's scroll-driven path animation. Its motion setup is now keyed to `usePathname`, cleaning up Lenis/ScrollTrigger on route changes and initializing Home reveals again on return.
+- `components/layout/Navigation.tsx` is shared in the root layout. Visible Home/About links use Next Link and `aria-current="page"`, with a blue accent and short underline. The existing Explore menu is preserved, includes both pages, and resolves Home section links correctly from About. Menu focus trapping/Escape behavior and scroll-lock cleanup remain in place; header page links are inert while the dialog is open. Mobile retains the labeled menu glyph and direct Home/About links.
+- `app/template.tsx` provides a restrained 450ms route-entry fade. Shared navigation stays persistent. Reduced motion disables the fade; all story content is server-rendered and readable without animation or JavaScript.
+- `scripts/verify-about-browser.mjs` checks production `/` and `/about`, active links, cross-route menu anchors, the closing CTA, keyboard Escape/focus, remounted Home autoplay, non-scroll infinite background animation and static reduced motion. Layout fixtures: 320x568, 360x800, 375x667, 375x812, 390x844, 430x932, 768x1024, 1024x768, 1440x900 and 1920x1080. Screenshots are in ignored `qa/about/`; opening, anonymous origin moment, philosophy and closing were visually reviewed on desktop and mobile. These are browser viewport tests, not physical-device tests.
+- Validation: lint, strict typecheck, existing walkthrough tests and production static build pass. No deployment performed.
+
+To repeat the About browser checks, run a production preview, then `node scripts/verify-about-browser.mjs`. Set `ARC_QA_URL` to its origin (defaults to http://localhost:3003), and `PLAYWRIGHT_MODULE` to an available Playwright `index.mjs` if Playwright is not installed locally. `BROWSER_CHANNEL` defaults to msedge.
+
+## About refinement: anonymous origin and explicit top reset
+
+Founder identities are intentionally hidden across the public website. The named founder list and its profile-list CSS have been removed. The story still says "four of us" and preserves the original human, collective voice. In the same editorial position, `.about-origin-moment` now reads FOUR PEOPLE / ONE QUESTION, WHY DOES FITNESS STOP WORKING WHEN LIFE STOPS BEING PREDICTABLE?, ONE IDEA, BUILD FITNESS AROUND LIFE / NOT LIFE AROUND FITNESS. The existing background ARC animation remains unchanged.
+
+Both shared navigation About links explicitly open `/about` at scroll position zero, including repeat clicks while already on About. `Navigation` uses Next Link's `onNavigate` (so modified clicks retain normal browser behavior) and `scroll={false}` to give this action one scroll owner. A repeat click prevents redundant routing and resets synchronously. Cross-route navigation resets in `Experience`'s `useLayoutEffect` at the route commit, before paint and the existing entry fade. Home does not jump before routing; no timeout or delayed scroll correction is used.
+
+`lib/animations/navigation-scroll.ts` coordinates the currently mounted Lenis instance and explicit About navigation. It performs an instant native scroll and uses Lenis's public stop/scrollTo(0, { immediate: true, force: true })/start methods to cancel interpolation and synchronize internal state, preserving any pre-existing stopped state. Lenis registration is cleared on cleanup; normal smooth scrolling remains active. Cross-route Home hash links are completed through Lenis after ScrollTrigger measurement, so refresh cannot cancel their smooth navigation; history restoration is excluded from that anchor handling. The browser's prior scroll-restoration policy is saved, temporarily set to manual for the explicit action, then restored after commit. That animation-frame callback only restores the policy; it never scrolls. Popstate navigation is tracked separately so ordinary back/forward restores its history position; a subsequent explicit About click always overrides it with zero.
+
+Validation: lint, strict typecheck, production build and existing walkthrough tests pass. `scripts/verify-about-navigation.mjs` checks Home top/middle/bottom to About, previously visited About, header and Explore menu links, repeat clicks from About middle/bottom, an in-flight wheel scroll, working scrolling after reset, active navigation, no founder identities in rendered Home/About, and back/forward restoration. Tests run at 1440x900, 390x844 and 320x568 (reduced motion). Every sampled animation frame after the About commit has scrollY=0, with no old-position flash. The broader About browser suite verifies the anonymous composition, unchanged background loop, reduced motion and responsive bounds at ten viewport sizes. Screenshots remain under ignored `qa/about/`.
+
+Repeat the focused checks with `node scripts/verify-about-navigation.mjs` against a production preview (`ARC_QA_URL`, `PLAYWRIGHT_MODULE`, `BROWSER_CHANNEL` use the same conventions as the About browser suite).

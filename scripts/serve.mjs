@@ -13,7 +13,16 @@ const server = createServer(async (request, response) => {
       response.writeHead(403).end("Forbidden");
       return;
     }
-    if ((await stat(file)).isDirectory()) file = resolve(file, "index.html");
+    const info = await stat(file).catch(error => {
+      if (error.code !== "ENOENT") throw error;
+      return null;
+    });
+    if (info?.isDirectory()) {
+      const index = resolve(file, "index.html");
+      // Next can emit an RSC data directory beside an extensionless HTML route.
+      const hasIndex = await stat(index).catch(() => null);
+      file = hasIndex ? index : file + ".html";
+    } else if (!info && !extname(file)) file += ".html";
     const content = await readFile(file);
     response.writeHead(200, { "Content-Type": mime[extname(file)] ?? "application/octet-stream", "X-Content-Type-Options": "nosniff" });
     response.end(request.method === "HEAD" ? undefined : content);
