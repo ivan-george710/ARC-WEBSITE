@@ -4,3 +4,7 @@ out/
 *.tsbuildinfo
 .env*
 qa/
+video/arc-intro/.cache/
+video/arc-intro/deliverables/
+video/arc-intro/qa/
+video/arc-intro/public/audio/*.wav

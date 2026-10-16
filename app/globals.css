@@ -70,7 +70,14 @@ h3 {
   letter-spacing: -.055em;
   font-weight: 400
 }
-main {
+/* One continuous light field, painted once across the entire Home narrative.
+   Broad gradients cross section edges naturally; no scroll listeners or blur surfaces. */
+.home-page {
+  background:
+    radial-gradient(ellipse 90% 19% at 72% 43%, #5b8bef0d, transparent 100%),
+    radial-gradient(ellipse 100% 22% at 35% 27%, #4a555b14, transparent 100%),
+    radial-gradient(ellipse 95% 18% at 50% 75%, #3a44492e, transparent 100%),
+    linear-gradient(180deg, #050505 0%, #080a0b 13%, #101518 29%, #11181d 42%, #090d10 56%, #080b0d 62%, #10171b 74%, #0c1114 83%, #07090a 92%, #050505 100%);
 }
 .section {
   padding: 110px var(--gutter);
@@ -224,8 +231,7 @@ main {
 }
 .hero {
   height: 160svh;
-  min-height: 1000px;
-  background: radial-gradient(ellipse at 55% 70%,#171d20 0,transparent 48%)
+  min-height: 1000px
 }
 .hero-sticky {
   height: 100svh;
@@ -319,8 +325,7 @@ main {
   writing-mode: vertical-rl
 }
 .problem {
-  padding-top: 150px;
-  background: linear-gradient(#050505,#0b0e10 60%,#050505)
+  padding-top: 150px
 }
 .same {
   display: inline-block;
@@ -547,7 +552,6 @@ main {
   margin-top: 5px
 }
 .vision {
-  background: linear-gradient(#0c1114,#11191e 50%,#080b0d);
   padding-bottom: 130px
 }
 .vision-heading {
@@ -638,8 +642,7 @@ main {
   flex-direction: column;
   justify-content: center;
   padding-top: 180px;
-  padding-bottom: 100px;
-  background: radial-gradient(ellipse at 50% 90%,#29353b44,transparent 55%)
+  padding-bottom: 100px
 }
 .final .scene-art>.arc-line {
   opacity: .55;
@@ -712,13 +715,11 @@ main {
   padding-bottom: 120px
 }
 footer {
-  border-top: 1px solid #2b363c;
   padding: 35px var(--gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background: #090d0f;
   color: #8b9aa2;
   font-size: 9px
 }

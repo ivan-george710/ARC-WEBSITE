@@ -1,0 +1,422 @@
+[
+  {
+    "at": 0,
+    "duration": 6.0,
+    "label": "low atmospheric texture",
+    "gain": 0.022,
+    "pan": -0.25
+  },
+  {
+    "at": 1,
+    "duration": 4.0,
+    "label": "ARC line tonal swell",
+    "gain": 0.035,
+    "pan": -0.4
+  },
+  {
+    "at": 3.15,
+    "duration": 2.4,
+    "label": "ARC line tonal swell",
+    "gain": 0.028,
+    "pan": 0.3
+  },
+  {
+    "at": 5.9,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.22,
+    "pan": 0
+  },
+  {
+    "at": 8,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.15,
+    "pan": 0
+  },
+  {
+    "at": 11.1,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.19,
+    "pan": 0
+  },
+  {
+    "at": 12.45,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.2,
+    "pan": 0
+  },
+  {
+    "at": 13.2,
+    "duration": 7.0,
+    "label": "low atmospheric texture",
+    "gain": 0.035,
+    "pan": 0.3
+  },
+  {
+    "at": 14,
+    "duration": 5.0,
+    "label": "ARC line tonal swell",
+    "gain": 0.04,
+    "pan": -0.2
+  },
+  {
+    "at": 14,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.3,
+    "pan": 0
+  },
+  {
+    "at": 14.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 16.0,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 17.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 19,
+    "duration": 1.4,
+    "label": "ARC line tonal swell",
+    "gain": 0.02,
+    "pan": 0.4
+  },
+  {
+    "at": 19.0,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 20,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.2,
+    "pan": 0
+  },
+  {
+    "at": 20.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 22.0,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 22.7,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.18,
+    "pan": 0
+  },
+  {
+    "at": 23.1,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": 0.25
+  },
+  {
+    "at": 23.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 25.0,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 26.05,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.2,
+    "pan": 0
+  },
+  {
+    "at": 26.5,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": -0.25
+  },
+  {
+    "at": 26.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 28.0,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 29.3,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.14,
+    "pan": 0
+  },
+  {
+    "at": 29.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 29.7,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": 0.25
+  },
+  {
+    "at": 31.0,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 32.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 33.45,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.24,
+    "pan": 0
+  },
+  {
+    "at": 33.9,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": -0.25
+  },
+  {
+    "at": 34.0,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 35.5,
+    "duration": 0.65,
+    "label": "slow sub pulse",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 35.8,
+    "duration": 7.2,
+    "label": "low atmospheric texture",
+    "gain": 0.022,
+    "pan": -0.2
+  },
+  {
+    "at": 36,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.12,
+    "pan": 0
+  },
+  {
+    "at": 39.6,
+    "duration": 3.3,
+    "label": "ARC line tonal swell",
+    "gain": 0.04,
+    "pan": 0
+  },
+  {
+    "at": 39.6,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.2,
+    "pan": 0
+  },
+  {
+    "at": 43,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.22,
+    "pan": 0
+  },
+  {
+    "at": 43.25,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": 0.25
+  },
+  {
+    "at": 43.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 44.35,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": -0.25
+  },
+  {
+    "at": 44.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 45.35,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": 0.25
+  },
+  {
+    "at": 45.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 46.35,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": -0.25
+  },
+  {
+    "at": 46.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 47,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.26,
+    "pan": 0
+  },
+  {
+    "at": 47.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 48.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 48.7,
+    "duration": 0.7,
+    "label": "soft UI confirmation",
+    "gain": 0.035,
+    "pan": 0.25
+  },
+  {
+    "at": 49.1,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.28,
+    "pan": 0
+  },
+  {
+    "at": 49.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 50.5,
+    "duration": 8.8,
+    "label": "low atmospheric texture",
+    "gain": 0.028,
+    "pan": 0.2
+  },
+  {
+    "at": 50.5,
+    "duration": 0.5,
+    "label": "system pulse",
+    "gain": 0.085,
+    "pan": 0
+  },
+  {
+    "at": 51,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.17,
+    "pan": 0
+  },
+  {
+    "at": 51.2,
+    "duration": 5.2,
+    "label": "ARC line tonal swell",
+    "gain": 0.045,
+    "pan": -0.4
+  },
+  {
+    "at": 56.4,
+    "duration": 3.5,
+    "label": "ARC line tonal swell",
+    "gain": 0.075,
+    "pan": 0
+  },
+  {
+    "at": 56.4,
+    "duration": 2.5,
+    "label": "low impact",
+    "gain": 0.3,
+    "pan": 0
+  }
+]

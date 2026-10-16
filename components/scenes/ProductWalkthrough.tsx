@@ -14,7 +14,7 @@ export function ProductWalkthrough() {
   const moment = walkthroughMoments[index];
   const complete = status === "complete";
   return <section ref={root} id="product" className="walkthrough section" data-moment={moment.key} data-playback={status} data-reduced-motion={reducedMotion} aria-label="Watch the ARC app adapt">
-    <div className="walk-topline"><span className="eyebrow">THE ARC APP</span><span className="walk-concept">ILLUSTRATIVE PRODUCT EXPERIENCE</span></div>
+    <div className="walk-topline"><span className="eyebrow">THE ARC APP</span></div>
     <div className="walk-stage">
       <div className="walk-narrative">
       <div className="walk-copy-stack">{walkthroughMoments.map((item, i) => <div className="walk-copy-view" key={item.key} data-copy-key={item.key} data-active={i === index} aria-hidden={i !== index}><h2 className={item.key === "complete" ? "walk-complete-title" : ""}>{item.title.split("\n").map((line, lineIndex) => <span className="walk-headline-line" key={lineIndex}>{line}</span>)}</h2></div>)}</div>

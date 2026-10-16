@@ -1,0 +1,114 @@
+{
+  "source": "Existing ARC website repository; captured standalone components, not the live website or a browser recording.",
+  "asset_note": "Phone UI values and 2D body remain the existing illustrative website product concepts. No new 3D asset or generated stock image was introduced.",
+  "references": [
+    {
+      "path": "components/ui/ArcLine.tsx",
+      "sha256": "8dccf8ae00a4b43ae891c22b1c955f06ca4e7fb2c9513db94ec9783894a7d1a7"
+    },
+    {
+      "path": "components/ui/DeviceFrame.tsx",
+      "sha256": "e31b9507edd98eb2c6ed328a748b9f35741b882fa1af018047db825b501f7f6a"
+    },
+    {
+      "path": "components/ui/WalkthroughScreens.tsx",
+      "sha256": "9fb6588768e9a6ac5574ad704de9fd08126bb0039a295af937266bcf7401b565"
+    },
+    {
+      "path": "components/ui/PhoneScreen.tsx",
+      "sha256": "5bf6ce4572de6c93a697b798b181b79a76a2f5b6e3d8ae053428d3d28261a000"
+    },
+    {
+      "path": "components/ui/BodyAvatar.tsx",
+      "sha256": "4a73b7cab3560b01fa624ba997041b311ee839ced99d0da0e9757ab7270c8df6"
+    },
+    {
+      "path": "components/scenes/VisionScene.tsx",
+      "sha256": "59a810b8c81539e0e414bd8e0182a658332a497deee6d80bb1ddcdeb6b98b585"
+    },
+    {
+      "path": "lib/animations/language.ts",
+      "sha256": "6316baa3faf6ed0b76427c7d36715d75482cb6b24a1879c9f9f542fc5ecba123"
+    },
+    {
+      "path": "lib/constants/brand.ts",
+      "sha256": "d7e907f72375e86947882d3e05976d1dfe9162096f1726ecec52d45d38434ac4"
+    },
+    {
+      "path": "public/fonts/Geist-Variable.ttf",
+      "sha256": "73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659"
+    }
+  ],
+  "assets": [
+    {
+      "file": "body-shoulder.svg",
+      "bytes": 509,
+      "sha256": "0a865d391dbfdbd280b4be62a2daeaa5750eb417d400256e1a9df094d9cea1ee"
+    },
+    {
+      "file": "Geist-Variable.ttf",
+      "bytes": 169056,
+      "sha256": "73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659"
+    },
+    {
+      "file": "phone-chrome.png",
+      "bytes": 331780,
+      "sha256": "c41ee508214e2118e73f3d89e629eac24d3d20f1ff14187c9d9003e9b51c1b3e"
+    },
+    {
+      "file": "phone-rigid-chrome.png",
+      "bytes": 330967,
+      "sha256": "2b6f67508248f44277f42d80ed3d6d91f92c265d97b0f36010f321eee85a1f57"
+    },
+    {
+      "file": "ui-baseline.png",
+      "bytes": 171949,
+      "sha256": "08018c7b884a4a5dd2b3316157ab8f3806b661b96767c7025bb466155951d643"
+    },
+    {
+      "file": "ui-body.png",
+      "bytes": 256966,
+      "sha256": "ad9c913521afb007a28d6bc79eb7b5b36130a054dcdfcb51ee04ac05d18ad1c3"
+    },
+    {
+      "file": "ui-goal.png",
+      "bytes": 234724,
+      "sha256": "341e912ea07361b66def61be2ff40c35f52abdb2a2ae2506986da42b7037f47f"
+    },
+    {
+      "file": "ui-nourish.png",
+      "bytes": 189350,
+      "sha256": "e3b2784bad8297e90792ee5b8a63ce5b5fb84984253c613b0b35fd883bcf9d25"
+    },
+    {
+      "file": "ui-progress.png",
+      "bytes": 185329,
+      "sha256": "ac75ba2cb01a55a666a25aa7c7ae686950e20ea047d28db8cd4abd7b1a878e89"
+    },
+    {
+      "file": "ui-recover.png",
+      "bytes": 252446,
+      "sha256": "62c9c91a696f3e8ac5b765ef86ce90498b4c6ace2ec4e0d45459d1afb720874a"
+    },
+    {
+      "file": "ui-rigid.png",
+      "bytes": 214187,
+      "sha256": "1b83112189e05cce31c9e78d78266dab8061f9a9a39f04ca0e9c96697c248d4b"
+    },
+    {
+      "file": "ui-system.png",
+      "bytes": 175339,
+      "sha256": "a67b6345e30cf94f3fd09cb93e3de6707527a75065f8c4a28c4423165d803cf2"
+    },
+    {
+      "file": "ui-time.png",
+      "bytes": 240330,
+      "sha256": "5da63cfe9bdefa9f15848a50dc253e0bdb14f665c4e7c39f47642b5961e10a98"
+    },
+    {
+      "file": "ui-travel.png",
+      "bytes": 177459,
+      "sha256": "c2df7e46f230087216dd68822680bab983f7bdd59f8c54c08e695168fcd445f3"
+    }
+  ]
+}

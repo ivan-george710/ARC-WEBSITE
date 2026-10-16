@@ -1,0 +1,28 @@
+{
+  "name": "arc-cinematic-intro",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio src/index.tsx",
+    "assets": "node scripts/prepare-assets.mjs",
+    "audio": "python scripts/sound_design.py && node scripts/mix-audio.mjs",
+    "render": "node scripts/render.mjs",
+    "typecheck": "tsc --noEmit",
+    "stills": "node scripts/render.mjs stills",
+    "draft": "node scripts/render.mjs draft"
+  },
+  "dependencies": {
+    "remotion": "4.0.535",
+    "@remotion/cli": "4.0.535",
+    "@remotion/bundler": "4.0.535",
+    "@remotion/renderer": "4.0.535",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
+    "@types/node": "22.19.0"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "duration": 60,
+  "status": "Delivered: licensed Machina by Scott Buckley (CC BY 4.0), adapted to 60 seconds and mixed with original ARC sound design. See music/MUSIC_CREDITS.txt. Cleanup: all 20 generated transition air/movement cues removed; music stem unchanged.",
+  "suggested_pulse_bpm": 80,
+  "chapters": [
+    {
+      "in": 0,
+      "out": 6,
+      "picture": "Black / partial ARC line / word-by-word opening / ARC glimpse",
+      "sound": "Almost-silent filtered room texture, sparse line-drawing tone; impact at 5.9",
+      "music_direction": "Free-time darkness. No percussion. First restrained low pulse."
+    },
+    {
+      "in": 6,
+      "out": 14,
+      "picture": "Static-plan proposition / six moving circumstances / life-change double statement",
+      "sound": "Low accents only; circumstance movement air passes removed",
+      "music_direction": "Build pressure without a busy rhythm. Open the harmony at 12.45."
+    },
+    {
+      "in": 14,
+      "out": 20,
+      "picture": "First ARC product hero; large ARC lockup; drawn energy line",
+      "sound": "Soft deep arrival, tonal lift and slow sub pulse",
+      "music_direction": "Open into a warm electronic bed. Suggested 80 BPM from this point; pulse every 1.5 seconds."
+    },
+    {
+      "in": 20,
+      "out": 36,
+      "picture": "60 MIN / late meeting / 10 MIN / travel / shoulder adaptation / new 10K goal",
+      "sound": "UI confirmations and low accents synchronized to app changes at 22.7, 26.05, 29.3 and 33.45",
+      "music_direction": "Controlled build, no drop. Support faster picture edits. Emotional lift into the new goal."
+    },
+    {
+      "in": 36,
+      "out": 43,
+      "picture": "Personalization / day one / day 200",
+      "sound": "Pull back to low texture. Hold tonal space. Day-200 low accent at 39.6",
+      "music_direction": "Reduce drums and bass density. Let the central statement breathe; sustain rather than peak."
+    },
+    {
+      "in": 43,
+      "out": 51,
+      "picture": "Four modules / fragmented network / connected ARC system",
+      "sound": "Four soft UI confirmations, faster measured pulse, converging low hits",
+      "music_direction": "Restrained climax. One-second module beats then a lift into network convergence. No EDM drop."
+    },
+    {
+      "in": 51,
+      "out": 60,
+      "picture": "Darkness / final ARC line / Find your ARC / supporting change copy / ARC / black",
+      "sound": "ARC line tonal swell, low impact at 56.4, long clean decay to silence",
+      "music_direction": "Resolve decisively but quietly. Give the last ARC logo space; no abrupt stop."
+    }
+  ],
+  "source_edit_map": "qa/audio-score/music-edit.json"
+}
