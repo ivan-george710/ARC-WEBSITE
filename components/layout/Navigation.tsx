@@ -1,4 +1,5 @@
 "use client";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -45,7 +46,7 @@ export function Navigation() {
     };
     return <>
       <header className="navigation">
-        <Link href="/" className="wordmark" aria-label="ARC home" tabIndex={open ? -1 : undefined} onClick={close}>ARC<span className="logo-period" /></Link>
+        <Link href="/" className="wordmark" aria-label="ARC home" tabIndex={open ? -1 : undefined} onClick={close}><BrandLogo /></Link>
         <div className="navigation-actions">
           <nav className="page-navigation" aria-label="Main navigation" inert={open}>
             <Link href="/" aria-current={pathname === "/" ? "page" : undefined}>Home</Link>

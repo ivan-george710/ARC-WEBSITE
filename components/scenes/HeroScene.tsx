@@ -1,4 +1,5 @@
 "use client";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { DeviceFrame } from "@/components/ui/DeviceFrame";
@@ -16,5 +17,5 @@ export function HeroScene() {
         }, root);
         return () => mm.revert();
     }, []);
-    return <section ref={root} className="hero" aria-label="Every body has an arc"><div className="hero-sticky"><div className="hero-topline hero-intro"><span className="eyebrow">A lifelong system. One adaptive app.</span></div><div className="scene-art" aria-hidden="true"><div className="hero-orbit"><div className="orbit-halo"/><ArcLine /></div></div><DeviceFrame variant="silhouette" className="hero-device" /><div className="hero-copy"><p className="hero-intro">EVERY BODY<br />HAS AN ARC.</p><h1 className="hero-brand">ARC</h1><div className="hero-bottom"><span className="eyebrow"><span className="accent-dot"/> Built around change.</span><a href="#philosophy" className="scroll-link">SCROLL TO FIND YOURS <span>↓</span></a></div></div><span className="hero-coordinate">THE ONLY CONSTANT IS CHANGE.</span></div></section>;
+    return <section ref={root} className="hero" aria-label="Every body has an arc"><div className="hero-sticky"><div className="hero-topline hero-intro"><span className="eyebrow">A lifelong system. One adaptive app.</span></div><div className="scene-art" aria-hidden="true"><div className="hero-orbit"><div className="orbit-halo"/><ArcLine /></div></div><DeviceFrame variant="silhouette" className="hero-device" /><div className="hero-copy"><p className="hero-intro">EVERY BODY<br />HAS AN ARC.</p><h1 className="hero-brand"><BrandLogo /></h1><div className="hero-bottom"><span className="eyebrow"><span className="accent-dot"/> Built around change.</span><a href="#philosophy" className="scroll-link">SCROLL TO FIND YOURS <span>↓</span></a></div></div><span className="hero-coordinate">THE ONLY CONSTANT IS CHANGE.</span></div></section>;
 }

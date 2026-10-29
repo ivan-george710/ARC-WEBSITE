@@ -1,2 +1,2 @@
-// ARC app color supplied as opaque ARGB 0xFF5B8BEF.
-export const APP_ACCENT = "#5B8BEF";
+// Active ArcColors.dark.brand: Arc/lib/theme_ctrl.dart at f5b4932.
+export const APP_ACCENT = "#FF8A1F";

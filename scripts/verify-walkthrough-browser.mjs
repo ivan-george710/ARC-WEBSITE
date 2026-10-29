@@ -76,13 +76,19 @@ for(const [width,height] of [[320,568],[360,800],[375,667],[375,812],[390,844],[
       const bounds=screen.getBoundingClientRect();
       const content=[...screen.querySelectorAll('h4,h5,.demo-row,.demo-note,.demo-chart,.demo-nutrition')].map(n=>n.getBoundingClientRect());
       const nav=el.querySelector('.demo-nav').getBoundingClientRect();
+      const island=el.querySelector('.device-island').getBoundingClientRect();
+      const header=el.querySelector('.phone-header').getBoundingClientRect();
+      const copy=el.querySelector('.walk-copy-stack').getBoundingClientRect();
+      const brand=el.querySelector('.walk-copy-view[data-active="true"] .brand-logo')?.getBoundingClientRect();
       const selected=[...el.querySelectorAll('[data-nav-index][data-selected="true"]')].map(n=>Number(n.dataset.navIndex));
-      return {key:el.dataset.moment,selected,device:{x:device.x,y:device.y,right:device.right,bottom:device.bottom},navBottom:nav.bottom,overflow:content.some(b=>b.bottom>bounds.bottom+1||b.right>bounds.right+1),body:el.querySelector('.walk-body').getBoundingClientRect().toJSON(),viewport:[innerWidth,innerHeight]};
+      return {key:el.dataset.moment,selected,chromeClear:header.top>=island.bottom,brandFits:!brand||brand.right<=copy.right+1,device:{x:device.x,y:device.y,right:device.right,bottom:device.bottom},navBottom:nav.bottom,overflow:content.some(b=>b.bottom>bounds.bottom+1||b.right>bounds.right+1),body:el.querySelector('.walk-body').getBoundingClientRect().toJSON(),viewport:[innerWidth,innerHeight]};
     });
     assert(fit.device.x>=0&&fit.device.right<=width&&fit.device.y>=65&&fit.device.bottom<=height,JSON.stringify(fit));
     assert.deepEqual(fit.selected,[i===6?1:i===7?2:i>=8?3:0]);
     assert(fit.navBottom<=height,JSON.stringify(fit));
     assert(!fit.overflow,`Content clipped: ${JSON.stringify(fit)}`);
+    assert(fit.chromeClear,`Camera island overlaps the app header: ${JSON.stringify(fit)}`);
+    assert(fit.brandFits,`Brand reveal exceeds its column: ${JSON.stringify(fit)}`);
     if([0,3,4,8].includes(i)) await page.screenshot({path:`qa/walkthrough/${width}x${height}-${fit.key}.png`});
     if(i<9)await page.locator('#product').getByRole('button',{name:/Next/}).click();
   }

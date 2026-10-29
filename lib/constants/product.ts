@@ -15,7 +15,7 @@ export type PhoneScenario = {
   location?: string;
   recoveryStep?: number;
 };
-export const screenNames = ["Home", "Workout", "Nutrition", "Recovery", "Progress"] as const;
+export const screenNames = ["Home", "Train", "Eat", "Recover", "You"] as const;
 export const productScreens: readonly PhoneScenario[] = [
   { screen: 0, context: "MONDAY, YOUR WAY", greeting: "Your day.\nYour direction.", focus: "TODAY’S PLAN", title: "Full-body strength", detail: "At the gym · Built around your schedule", metric: { value: "60", label: "MINUTES AVAILABLE" }, rows: [{ label: "Next up", value: "Your strength session" }, { label: "Recovery check-in", value: "Ready to move" }], note: "Training, food and recovery. Together." },
   { screen: 1, context: "YOUR TRAINING", greeting: "Show up.\nWe’ll adapt.", focus: "FULL-BODY STRENGTH", title: "Dumbbell press", detail: "No bench available? Your session keeps moving.", metric: { value: "3 × 10", label: "SETS × REPS" }, rows: [{ label: "Goblet squat", value: "3 × 12" }, { label: "Dumbbell press", value: "3 × 10" }], note: "Equipment changed. Your plan adjusted." },

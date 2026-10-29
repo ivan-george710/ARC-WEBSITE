@@ -1,15 +1,16 @@
 "use client";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { BodyAvatar } from "./BodyAvatar";
 import { useId } from "react";
 import { productScreens, screenNames, type PhoneScenario, type ScreenIndex } from "@/lib/constants/product";
 export { screenNames } from "@/lib/constants/product";
 
 export function AppIcon({ index }: { index: number }) {
-  const paths = ["M3 10 12 3l9 7v10h-6v-6H9v6H3Z", "M4 9v6m3-9v12m10-12v12m3-9v6M7 12h10", "M12 3c-5 3-7 6-7 10a7 7 0 0 0 14 0c0-4-2-7-7-10Z", "M12 4v16M4 12h16", "M3 18 8 12l4 3 9-11"];
+  const paths = ["M3 10 12 3l9 7v10h-6v-6H9v6H3Z", "M4 9v6m3-9v12m10-12v12m3-9v6M7 12h10", "M5 3v7m3-7v7M3 3v7c0 3 7 3 7 0V3M6.5 13v8M17 3c-3 3-3 7 0 9h3V3Zm3 9v9", "M20 15A9 9 0 0 1 9 4a9 9 0 1 0 11 11Z", "M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2"];
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path d={paths[index]} /></svg>;
 }
 function ProgressChart({ id }: { id: string }) {
-  return <svg viewBox="0 0 260 95" className="phone-chart" aria-label="Illustrative training progress over six weeks" role="img"><defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop stopColor="var(--accent)" stopOpacity=".22" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></linearGradient></defs>{[25, 50, 75].map(y => <line key={y} x1="0" x2="260" y1={y} y2={y} stroke="#36454f" strokeWidth=".5" />)}<path d="M0 80 Q20 85 35 66 T70 64 T110 42 T150 48 T195 20 T255 8 L255 95 L0 95Z" fill={`url(#${id})`} /><path d="M0 80 Q20 85 35 66 T70 64 T110 42 T150 48 T195 20 T255 8" fill="none" stroke="var(--accent)" strokeWidth="2" /><circle cx="255" cy="8" r="3" fill="var(--accent)" /></svg>;
+  return <svg viewBox="0 0 260 95" className="phone-chart" aria-label="Illustrative training progress over six weeks" role="img"><defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop stopColor="var(--accent)" stopOpacity=".22" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></linearGradient></defs>{[25, 50, 75].map(y => <line key={y} x1="0" x2="260" y1={y} y2={y} stroke="var(--line)" strokeWidth=".5" />)}<path d="M0 80 Q20 85 35 66 T70 64 T110 42 T150 48 T195 20 T255 8 L255 95 L0 95Z" fill={`url(#${id})`} /><path d="M0 80 Q20 85 35 66 T70 64 T110 42 T150 48 T195 20 T255 8" fill="none" stroke="var(--accent)" strokeWidth="2" /><circle cx="255" cy="8" r="3" fill="var(--accent)" /></svg>;
 }
 export function PhoneScreen({ screen = 0, scenario, legacy = false }: { screen?: ScreenIndex; scenario?: PhoneScenario; legacy?: boolean }) {
   const chartId = useId();
@@ -17,7 +18,7 @@ export function PhoneScreen({ screen = 0, scenario, legacy = false }: { screen?:
   const area = data.area ?? "shoulder";
   return <div className={`phone-screen ${legacy ? "phone-screen-legacy" : ""}`}>
     <div className="phone-status"><span>9:41</span><span aria-hidden="true">▮▮▮ ▰</span></div>
-    <div className="phone-header"><span className="wordmark">{legacy ? "PLAN" : "ARC"}</span><span className="avatar">{legacy ? "—" : "A"}</span></div>
+    <div className="phone-header"><span className="wordmark">{legacy ? "PLAN" : <BrandLogo />}</span><span className="avatar">{legacy ? "—" : "A"}</span></div>
     {legacy ? <div className="legacy-screen"><span className="phone-kicker">YOUR FIXED ROUTINE</span><h4>The same plan.<br />Every week.</h4><div className="rigid-plan">{["PUSH", "PULL", "LEGS", "REST"].map(name => <div className="legacy-plan-row" key={name}><strong>{name}</strong><span>60 MIN</span></div>)}</div><div className="legacy-warning"><span>!</span>Life changed.<br />The plan didn’t.</div></div> : <>
       <div key={`${data.context}-${data.title}`} className="phone-story">
         <div className="phone-greeting"><span className="phone-kicker">{data.context}</span><h4>{data.greeting}</h4></div>
