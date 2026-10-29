@@ -1,6 +1,6 @@
 /* One quiet editorial composition within ARC's existing visual system. */
 .about-page { position: relative; isolation: isolate; background: linear-gradient(180deg,var(--bg) 0%,var(--surface) 24%,var(--shell) 45%,var(--surface) 68%,var(--bg) 100%); }
-.about-background { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 80% 40%,color-mix(in srgb,var(--accent) 3.14%,transparent),transparent 75%); }
+.about-background { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse 120% 85% at 85% 25%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 100%), radial-gradient(ellipse 130% 90% at 10% 95%,color-mix(in srgb,var(--accent) 5%,transparent),transparent 100%); }
 .about-background .about-arc { width: 140%; height: 110%; inset: -5% -20%; opacity: .23; }
 .about-background .about-arc path { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2100; animation: about-arc-draw 28s ease-in-out infinite; }
 .about-background .about-arc-rise { animation: about-arc-drift 32s ease-in-out infinite; }

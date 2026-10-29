@@ -5,6 +5,8 @@ import { ArcLine } from "@/components/ui/ArcLine";
 import "./about.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
+  openGraph: { url: "/about", title: "About ARC — Built around real life.", description: "Four people. One question. The story behind ARC, and why we’re building fitness around life.", images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: "ARC" }] },
   title: "About ARC — Built around real life.",
   description: "Four people. One question. The story behind ARC, and why we’re building fitness around life.",
 };

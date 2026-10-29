@@ -40,9 +40,17 @@
 .about-origin .brand-logo { font-size: inherit; }
 .about-closing>.brand-logo { margin-bottom: 40px; font-size: 60px; }
 .network-center .brand-logo { font-size: .8em; }
-.home-page { background: radial-gradient(ellipse 90% 19% at 72% 43%, var(--glow), transparent 100%), radial-gradient(ellipse 100% 22% at 35% 27%, #ffe3c405, transparent 100%), radial-gradient(ellipse 95% 18% at 50% 75%, #ff8a1f08, transparent 100%), var(--story-gradient); }
+/* Broad, overlapping light fields share one page-sized canvas. Their edges
+   dissolve across chapters; no section backgrounds or moving blur layers. */
+.home-page { background:
+  radial-gradient(ellipse 130% 16% at 18% 5%, #ff8a1f24, transparent 100%),
+  radial-gradient(ellipse 115% 22% at 32% 27%, #ff8a1f1a, transparent 100%),
+  radial-gradient(ellipse 105% 19% at 80% 43%, #ff8a1f30, transparent 100%),
+  radial-gradient(ellipse 125% 18% at 42% 75%, #ff8a1f24, transparent 100%),
+  radial-gradient(ellipse 115% 14% at 72% 98%, #ff8a1f30, transparent 100%),
+  var(--story-gradient); }
 .hero-orbit .arc-line { filter: drop-shadow(0 0 7px var(--glow)); }
-.orbit-halo { background: radial-gradient(ellipse,var(--glow),transparent 65%); box-shadow: 0 -1px 50px #ff8a1f08; }
+.orbit-halo { background: radial-gradient(ellipse,#ff8a1f24,transparent 80%); box-shadow: 0 -1px 50px #ff8a1f10; }
 .nav-panel { background: var(--surface); }
 .network-orbit { border-color: #ff8a1f24; }
 .network-connections line, .network-mobile-connections { stroke: var(--accent); stroke-opacity: .32; }

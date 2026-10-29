@@ -86,7 +86,11 @@ and recovery illustrations are presentation mappings, not copied app data.
 The continuous home field retains the original percentage stops
 0/13/29/42/56/62/74/83/92/100. Its graphite and warm-black interpolation
 colors and low-opacity orange light fields are website atmospheric adaptations.
-They are painted once across Home, not separately on each scene.
+They are painted once across Home, not separately on each scene. The final
+29 October refinement increases the five broad orange fields to alpha
+0x24 / 0x1A / 0x30 / 0x24 / 0x30, centered at 18% 5%, 32% 27%,
+80% 43%, 42% 75%, and 72% 98%, respectively. About uses calmer 9% and 5%
+orange fields. These changes affect atmosphere only, not product glow tokens.
 About has one continuous dark page gradient and fixed looping orange line art.
 
 ## Typography and spacing
@@ -132,8 +136,8 @@ Preserve its aspect ratio and clear space; do not draw a replacement symbol.
 `public/brand/og.png` uses the same source symbol on a warm dark field.
 Rebuild these with `node scripts/build-brand-assets.mjs` (uses Next's installed
 Sharp dependency). OG lettering is rasterized by the host SVG font renderer.
-Set `NEXT_PUBLIC_SITE_URL` to the approved canonical origin for a future
-production build; the local fallback is `http://localhost:3000`.
+Canonical and social metadata use the approved origin `https://www.arclife.co.in`
+from `app/layout.tsx`, with `/about` canonical metadata set on that route.
 
 Native launch files were also inspected: Android's drawable launch background
 still has the stock white layer/commented bitmap; iOS LaunchScreen references

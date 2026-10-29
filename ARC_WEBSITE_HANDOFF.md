@@ -1,5 +1,42 @@
 # ARC website handoff
 
+## Orange atmosphere refinement and publication - 29 October 2026
+
+The final refinement increases only background illumination, plus approved
+production metadata configuration. `app/brand.css` retains the single Home
+background canvas and original base gradient stops, with five broad overlapping
+orange light fields for the opening, developing problem, phone, network and
+final reveal. The gap between product and network remains darker. Field alpha
+ranges from 10% to 19%; large elliptical falloffs avoid bounded circles and
+section seams. The hero's existing halo is warmer. `app/about/about.css` uses
+calmer 9% and 5% orange fields on its existing fixed background.
+
+Copy, typography, logo, page structure, phone UI, mobile layout, GSAP animation,
+22-second sequencing and interactions are unchanged by this refinement.
+
+`app/layout.tsx` now fixes metadataBase to `https://www.arclife.co.in`, sets the
+Home canonical/OG URL, and resolves social image URLs there.
+`app/about/page.tsx` supplies the `/about` canonical and social URL.
+No DNS changes or manual deployment are part of this publication.
+
+The completed brand sync was recorded separately as `3aca3bf` on
+`brand/flutter-identity-sync`. The final refinement also updates this handoff
+and `ARC_BRAND_SYSTEM.md`; the latter's original local-origin limitation is
+superseded by the approved production origin above.
+
+Validation: lint, typecheck, logic tests and production build pass. Browser
+checks cover 320/360/375/390/430 mobile widths, tablet and desktop; all ten
+walkthrough screens, no competing states, pause/replay, reduced motion,
+About loops, route/reset/history behavior and overflow. Visual review covers
+hero, product, network, final and calmer About at desktop/tablet/mobile sizes.
+Before/after refinement screenshots are saved locally in `qa/atmosphere/`.
+Production HTML inspection confirms canonical, OG URL and social image origins
+for both routes. Integration validation/publication details follow below.
+
+Unrelated `.gitignore`, video project directories, film handoffs and generated
+local agent guidance are excluded from the website commits. The Flutter app
+repository and cinematic video projects are untouched.
+
 ## Brand synchronization ? 29 October 2026
 
 Implemented locally on `brand/flutter-identity-sync`. No push or deployment.
@@ -104,9 +141,8 @@ no separate official wordmark asset or newly branded native splash in the
 inspected platform launch files. The shared component uses the official symbol
 with text lettering. OG text is rasterized by the host SVG font renderer.
 
-The canonical hosted origin was not supplied. Set `NEXT_PUBLIC_SITE_URL` to the
-approved production origin before any future deployment so social image URLs
-resolve there; local builds intentionally fall back to localhost:3000.
+Historical limitation, now resolved: the approved canonical origin is configured
+as `https://www.arclife.co.in`; no production-origin environment variable is required.
 Browser QA used desktop Edge viewport emulation, not physical iOS/Android
 hardware or a GPU performance benchmark. No production change was made.
 
