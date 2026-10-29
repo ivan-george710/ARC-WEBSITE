@@ -1,15 +1,11 @@
 @import "tailwindcss";
 @theme inline {
-  --color-background: #050505;
-  --color-foreground: #e8ecee;
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
   --color-accent: var(--accent);
   --font-sans: var(--font-geist), Arial, Helvetica, sans-serif;
 }
 :root {
-  --bg: #050505;
-  --text: #e8ecee;
-  --muted: #91999d;
-  --line: #303537;
   --gutter: clamp(24px,5.5vw,100px)
 }
 * {
@@ -55,7 +51,7 @@ button:focus-visible, a:focus-visible {
 }
 ::selection {
   background: var(--accent);
-  color: #050505
+  color: var(--bg)
 }
 h1, h2, h3, h4, h5, p {
   margin: 0
@@ -74,10 +70,10 @@ h3 {
    Broad gradients cross section edges naturally; no scroll listeners or blur surfaces. */
 .home-page {
   background:
-    radial-gradient(ellipse 90% 19% at 72% 43%, #5b8bef0d, transparent 100%),
-    radial-gradient(ellipse 100% 22% at 35% 27%, #4a555b14, transparent 100%),
-    radial-gradient(ellipse 95% 18% at 50% 75%, #3a44492e, transparent 100%),
-    linear-gradient(180deg, #050505 0%, #080a0b 13%, #101518 29%, #11181d 42%, #090d10 56%, #080b0d 62%, #10171b 74%, #0c1114 83%, #07090a 92%, #050505 100%);
+    radial-gradient(ellipse 90% 19% at 72% 43%, color-mix(in srgb,var(--accent) 5.10%,transparent), transparent 100%),
+    radial-gradient(ellipse 100% 22% at 35% 27%, color-mix(in srgb,var(--line) 7.84%,transparent), transparent 100%),
+    radial-gradient(ellipse 95% 18% at 50% 75%, color-mix(in srgb,var(--surface-raised) 18.04%,transparent), transparent 100%),
+    linear-gradient(180deg, var(--bg) 0%, var(--surface) 13%, var(--surface) 29%, var(--surface) 42%, var(--surface) 56%, var(--surface) 62%, var(--surface) 74%, var(--surface) 83%, var(--surface) 92%, var(--bg) 100%);
 }
 .section {
   padding: 110px var(--gutter);
@@ -94,12 +90,12 @@ h3 {
   color: var(--accent)
 }
 .muted {
-  color: #a8b5bf
+  color: var(--muted)
 }
 .body-copy {
   font-size: 15px;
   line-height: 1.8;
-  color: #a7aeb1;
+  color: var(--muted);
   letter-spacing: -.015em
 }
 .accent-dot {
@@ -124,7 +120,7 @@ h3 {
   z-index: 200;
   padding: 15px;
   background: var(--text);
-  color: #050505
+  color: var(--bg)
 }
 .skip-link:focus {
   top: 20px
@@ -172,7 +168,7 @@ h3 {
 .menu-glyph i {
   height: 1px;
   width: 22px;
-  background: #c5cbce;
+  background: var(--muted);
   transition: transform .3s
 }
 .menu-glyph.is-open i:first-child {
@@ -184,7 +180,7 @@ h3 {
 .nav-panel {
   position: fixed;
   inset: 0;
-  background: #101416;
+  background: var(--surface);
   z-index: 100;
   padding: 145px var(--gutter) 40px;
   overflow: auto
@@ -247,7 +243,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   z-index: 2;
-  color: #a5adb1
+  color: var(--muted)
 }
 .hero-orbit {
   position: absolute;
@@ -256,7 +252,7 @@ h3 {
 }
 .hero-orbit .arc-line {
   transform: rotate(-11deg) scale(1.1);
-  filter: drop-shadow(0 0 7px #a6b8c322)
+  filter: drop-shadow(0 0 7px color-mix(in srgb,var(--muted) 13.33%,transparent))
 }
 .orbit-halo {
   position: absolute;
@@ -265,8 +261,8 @@ h3 {
   left: 13%;
   top: 23%;
   border-radius: 100%;
-  background: radial-gradient(ellipse at 50% 50%,#58676e09,transparent 65%);
-  box-shadow: 0 -1px 50px #94adb508;
+  background: radial-gradient(ellipse at 50% 50%,color-mix(in srgb,var(--ice) 3.53%,transparent),transparent 65%);
+  box-shadow: 0 -1px 50px color-mix(in srgb,var(--muted) 3.14%,transparent);
   transform: rotate(-20deg)
 }
 .hero-copy {
@@ -287,7 +283,7 @@ h3 {
   font-weight: 500;
   margin-left: -.017em;
   margin-top: 27px;
-  color: #e0e6e8
+  color: var(--text)
 }
 .hero-bottom {
   display: flex;
@@ -318,7 +314,7 @@ h3 {
 .hero-coordinate {
   font-size: 8px;
   letter-spacing: .15em;
-  color: #697377;
+  color: var(--ice);
   position: absolute;
   right: var(--gutter);
   top: 49%;
@@ -329,7 +325,7 @@ h3 {
 }
 .same {
   display: inline-block;
-  color: #929da2
+  color: var(--muted)
 }
 .same span {
   display: inline-block
@@ -340,7 +336,7 @@ h3 {
 }
 .problem-resolution>p {
   font-size: clamp(24px,3vw,44px);
-  color: #859096;
+  color: var(--ice);
   letter-spacing: -.04em
 }
 .problem-resolution h3 {
@@ -363,7 +359,7 @@ h3 {
 .timeline-line {
   display: block;
   height: 1px;
-  background: #3d494f;
+  background: var(--line);
   width: 100%;
   margin-bottom: 16px;
   transition: background .4s
@@ -372,7 +368,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: 15px;
-  border-top: 1px solid #36454c;
+  border-top: 1px solid var(--line);
   padding-top: 22px;
   margin-top: 30px
 }
@@ -392,12 +388,12 @@ h3 {
   width: 300px;
   height: 625px;
   flex-shrink: 0;
-  background: #101416;
-  border: 5px solid #3a4449;
+  background: var(--surface);
+  border: 5px solid var(--surface-raised);
   border-radius: 44px;
   position: relative;
   padding: 5px;
-  box-shadow: inset 0 0 0 1px #a8b5bc66,20px 40px 80px #000a;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb,var(--muted) 40.00%,transparent),20px 40px 80px #000a;
   transform-style: preserve-3d;
   overflow: hidden;
   z-index: 2
@@ -407,7 +403,7 @@ h3 {
   position: absolute;
   inset: 0;
   border-radius: 39px;
-  border: 1px solid #7a858a66;
+  border: 1px solid color-mix(in srgb,var(--ice) 40.00%,transparent);
   pointer-events: none;
   z-index: 5
 }
@@ -418,13 +414,13 @@ h3 {
   z-index: 3;
   left: calc(50% - 40px);
   top: 13px;
-  background: #050505;
+  background: var(--bg);
   border-radius: 20px
 }
 .phone-screen {
   height: 100%;
   border-radius: 33px;
-  background: linear-gradient(145deg,#172026,#0c1115 60%);
+  background: linear-gradient(145deg,var(--surface),var(--surface) 60%);
   padding: 14px 17px;
   display: flex;
   flex-direction: column;
@@ -447,7 +443,7 @@ h3 {
 }
 .avatar {
   font-size: 8px;
-  border: 1px solid #67757d;
+  border: 1px solid var(--ice);
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -460,7 +456,7 @@ h3 {
 .phone-greeting>span {
   font-size: 6px;
   letter-spacing: .12em;
-  color: #9daab1
+  color: var(--muted)
 }
 .phone-greeting h4 {
   font-size: 29px;
@@ -472,8 +468,8 @@ h3 {
 }
 .phone-feature {
   margin-top: 22px;
-  border: 1px solid #38454d;
-  background: #1e2a3160;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb,var(--surface-raised) 37.65%,transparent);
   padding: 14px 12px
 }
 .phone-chart {
@@ -491,13 +487,13 @@ h3 {
   display: flex;
   justify-content: space-between;
   padding: 18px 0;
-  border-bottom: 1px solid #2c3840;
+  border-bottom: 1px solid var(--line);
   font-size: 8px;
-  color: #a0adb5
+  color: var(--muted)
 }
 .phone-row strong {
   font-weight: 400;
-  color: #d5dde1;
+  color: var(--text);
   font-size: 7px
 }
 .phone-note {
@@ -505,7 +501,7 @@ h3 {
   align-items: center;
   gap: 6px;
   font-size: 7px;
-  color: #a7b4bc;
+  color: var(--muted);
   margin-top: 18px
 }
 .phone-note i {
@@ -519,7 +515,7 @@ h3 {
   justify-content: space-between;
   margin-top: auto;
   padding: 20px 0 4px;
-  color: #74818a
+  color: var(--ice)
 }
 .phone-nav>span {
   font-size: 5px;
@@ -531,7 +527,7 @@ h3 {
 .phone-ring {
   width: 100px;
   height: 100px;
-  border: 8px solid #3e555c;
+  border: 8px solid var(--line);
   border-right-color: var(--accent);
   border-top-color: var(--accent);
   border-radius: 50%;
@@ -587,7 +583,7 @@ h3 {
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 1px solid #38434a44;
+  border: 1px solid color-mix(in srgb,var(--line) 26.67%,transparent);
   border-radius: 50%;
   transform: translate(-50%,-50%)
 }
@@ -610,10 +606,10 @@ h3 {
   transform: translate(-50%,-50%);
   font-size: 9px;
   letter-spacing: .13em;
-  background: #11191e;
+  background: var(--surface);
   padding: 12px 15px;
   white-space: nowrap;
-  color: #bcc8ce;
+  color: var(--muted);
   display: flex;
   align-items: center;
   gap: 10px
@@ -632,7 +628,7 @@ h3 {
 .vision-note {
   text-align: center;
   font-size: 13px;
-  color: #8e9ca5;
+  color: var(--muted);
   line-height: 1.8;
   margin-top: 35px
 }
@@ -656,7 +652,7 @@ h3 {
   z-index: 1
 }
 .final>.eyebrow {
-  color: #93a1a8;
+  color: var(--muted);
   margin-bottom: 70px
 }
 .final h2 {
@@ -671,7 +667,7 @@ h3 {
 }
 .final-bottom>p {
   font-size: 16px;
-  color: #7e8d95;
+  color: var(--ice);
   line-height: 1.7;
   letter-spacing: -.02em
 }
@@ -684,7 +680,7 @@ h3 {
 .follow-button {
   width: 100%;
   padding: 22px 0;
-  border-bottom: 1px solid #839198;
+  border-bottom: 1px solid var(--ice);
   display: flex;
   justify-content: space-between;
   font-size: 12px;
@@ -702,12 +698,12 @@ h3 {
 .final-tagline {
   display: block;
   margin-top: 20px;
-  color: #819199;
+  color: var(--ice);
   font-size: 8px
 }
 .follow-details {
   font-size: 12px;
-  color: #b9c4cb;
+  color: var(--muted);
   line-height: 1.8;
   margin-top: 20px
 }
@@ -720,11 +716,11 @@ footer {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  color: #8b9aa2;
+  color: var(--muted);
   font-size: 9px
 }
 footer .wordmark {
-  color: #dbe3e8;
+  color: var(--text);
   font-size: 23px
 }
 footer>a:last-child {
@@ -1011,7 +1007,7 @@ footer>a:last-child {
 }
 .navigation {
   position: fixed;
-  background: linear-gradient(#050505b3,transparent);
+  background: linear-gradient(color-mix(in srgb,var(--bg) 70.20%,transparent),transparent);
   height: 90px
 }
 .menu-button:hover {

@@ -1,4 +1,5 @@
 "use client";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import { useRef } from "react";
 import { PhoneShell, WalkthroughScreen } from "@/components/ui/WalkthroughScreens";
 
@@ -17,7 +18,7 @@ export function ProductWalkthrough() {
     <div className="walk-topline"><span className="eyebrow">THE ARC APP</span></div>
     <div className="walk-stage">
       <div className="walk-narrative">
-      <div className="walk-copy-stack">{walkthroughMoments.map((item, i) => <div className="walk-copy-view" key={item.key} data-copy-key={item.key} data-active={i === index} aria-hidden={i !== index}><h2 className={item.key === "complete" ? "walk-complete-title" : ""}>{item.title.split("\n").map((line, lineIndex) => <span className="walk-headline-line" key={lineIndex}>{line}</span>)}</h2></div>)}</div>
+      <div className="walk-copy-stack">{walkthroughMoments.map((item, i) => <div className="walk-copy-view" key={item.key} data-copy-key={item.key} data-active={i === index} aria-hidden={i !== index}><h2 className={item.key === "complete" ? "walk-complete-title" : ""}>{item.key === "complete" ? <BrandLogo /> : item.title.split("\n").map((line, lineIndex) => <span className="walk-headline-line" key={lineIndex}>{line}</span>)}</h2></div>)}</div>
       <div className="walk-detail-stack">{walkthroughMoments.map((item,i) => <p className="walk-detail-view" key={item.key} data-active={i === index} aria-hidden={i !== index}>{item.detail}</p>)}</div>
       </div>
       <div className="walk-device-space">

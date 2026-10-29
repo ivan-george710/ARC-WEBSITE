@@ -1,0 +1,96 @@
+/* Source: Arc f5b4932, theme_ctrl.dart + widgets/arc_glass.dart.
+   Atmospheric interpolation and hover colors are website adaptations. */
+:root {
+  --bg: #050506;
+  --surface: #101012;
+  --surface-raised: #1a1a1e;
+  --shell: #12110e;
+  --chip: #16181d;
+  --text: #f4f1ea;
+  --muted: #a39e93;
+  --faint: #5c636c;
+  --line: #2a2824;
+  --accent: #ff8a1f;
+  --on-accent: #1a0c02;
+  --secondary: #19d6c8;
+  --ice: #b7c0ca;
+  --accent-top: #ffe3c4;
+  --accent-mid: #ffb23a;
+  --accent-hover: color-mix(in srgb, var(--accent) 88%, var(--accent-top));
+  --accent-pressed: color-mix(in srgb, var(--accent) 88%, var(--on-accent));
+  --border-glass: #ffffff1a;
+  --glow: #ff8a1f14;
+  --glow-selected: #ff8a1f29;
+  --chart: var(--accent);
+  --progress: var(--accent);
+  --button-gradient: linear-gradient(135deg, var(--accent-top) 0%, var(--accent-mid) 45%, var(--accent) 100%);
+  --glass-gradient: linear-gradient(135deg, var(--surface-raised) 0%, #0c0c0e 50%, #08080a 100%);
+  --panel-gradient: linear-gradient(135deg, var(--surface-raised), var(--surface));
+  --story-gradient: linear-gradient(180deg, var(--bg) 0%, #080809 13%, var(--surface) 29%, #141210 42%, #090808 56%, #080809 62%, #131211 74%, #0d0c0b 83%, #070707 92%, var(--bg) 100%);
+}
+.brand-logo { display: inline-flex; align-items: center; gap: .26em; color: var(--text); line-height: 1; vertical-align: middle; }
+.brand-symbol { display: block; flex: none; width: .85em; height: .91em; background: currentColor; mask: url('/brand/logo-white.png') center / contain no-repeat; }
+.brand-lettering { font-family: var(--font-space),sans-serif; font-weight: 500; letter-spacing: -.075em; }
+.brand-logo-mark .brand-symbol { width: 1em; height: 1.07em; }
+.wordmark { font-size: 30px; }
+.hero-brand { font-size: clamp(120px,24vw,410px); }
+.hero-brand .brand-logo { gap: .12em; }
+.hero-brand .brand-symbol { width: .62em; height: .75em; }
+.closing-brand { display: block; font-size: clamp(48px,7vw,100px); margin-bottom: 35px; }
+.about-origin .brand-logo { font-size: inherit; }
+.about-closing>.brand-logo { margin-bottom: 40px; font-size: 60px; }
+.network-center .brand-logo { font-size: .8em; }
+/* Broad, overlapping light fields share one page-sized canvas. Their edges
+   dissolve across chapters; no section backgrounds or moving blur layers. */
+.home-page { background:
+  radial-gradient(ellipse 130% 16% at 18% 5%, #ff8a1f24, transparent 100%),
+  radial-gradient(ellipse 115% 22% at 32% 27%, #ff8a1f1a, transparent 100%),
+  radial-gradient(ellipse 105% 19% at 80% 43%, #ff8a1f30, transparent 100%),
+  radial-gradient(ellipse 125% 18% at 42% 75%, #ff8a1f24, transparent 100%),
+  radial-gradient(ellipse 115% 14% at 72% 98%, #ff8a1f30, transparent 100%),
+  var(--story-gradient); }
+.hero-orbit .arc-line { filter: drop-shadow(0 0 7px var(--glow)); }
+.orbit-halo { background: radial-gradient(ellipse,#ff8a1f24,transparent 80%); box-shadow: 0 -1px 50px #ff8a1f10; }
+.nav-panel { background: var(--surface); }
+.network-orbit { border-color: #ff8a1f24; }
+.network-connections line, .network-mobile-connections { stroke: var(--accent); stroke-opacity: .32; }
+.vision-node { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; }
+.phone-screen { background: var(--glass-gradient); font-family: var(--font-space),sans-serif; }
+.phone-header .brand-logo { font-size: 22px; }
+.phone-feature { background: var(--panel-gradient); border-radius: 22px; box-shadow: 0 10px 20px -4px #00000057; }
+.demo-app .phone-header .brand-logo { font-size: 7cqw; }
+.walk-copy-view .walk-complete-title { font-size: clamp(72px,30cqw,210px); }
+.walkthrough-device { border-radius: calc(var(--device-width) * .14); }
+.walkthrough-device::before { border-radius: calc(var(--device-width) * .125); }
+.walkthrough-device .phone-screen { border-radius: 10cqw; }
+.walkthrough-device .device-island { width: 26cqw; height: 6cqw; top: 4cqw; left: 37cqw; }
+.demo-app .avatar { border-color: var(--border-glass); background: var(--chip); }
+.demo-heading .phone-kicker { color: var(--accent); font-weight: 700; letter-spacing: .1em; }
+.demo-heading h4 { font-weight: 600; letter-spacing: -.045em; }
+.demo-rows { background: var(--panel-gradient); border-radius: 5cqw; padding-inline: 3cqw; border: 1px solid var(--border-glass); margin-top: 2cqw; }
+.demo-row:last-child { border-bottom: 0; }
+.demo-express, .demo-body-card, .demo-plan, .demo-recovery { background: var(--glass-gradient); border-color: var(--border-glass); border-radius: 7cqw; box-shadow: 0 2cqw 5cqw #00000038; }
+.demo-express { border-color: #ff8a1fa6; box-shadow: 0 2cqw 5cqw var(--glow-selected); }
+.demo-badge { display: inline-block; padding: 1.5cqw 2.5cqw; border-radius: 99px; background: var(--button-gradient); color: var(--on-accent); font-weight: 600; }
+.demo-week span { border-radius: 2cqw; background: var(--button-gradient); color: var(--on-accent); border-color: transparent; }
+.demo-week span[data-rest="true"] { background: var(--chip); color: var(--muted); border-color: var(--line); }
+.demo-nav { padding: 2cqw; margin-top: 2cqw; border: 1px solid var(--border-glass); border-radius: 10cqw; background: #0000008c; gap: .5cqw; }
+.demo-nav>span { flex: 1; padding: 2.2cqw .6cqw; border-radius: 7cqw; color: #ffffff9e; }
+.demo-nav>span[data-selected="true"] { background: var(--button-gradient); color: var(--on-accent); box-shadow: 0 1cqw 4cqw #ff8a1f4d; }
+.demo-nav svg { display: block; margin-inline: auto; }
+.demo-complete>.brand-logo { font-size: 23cqw; align-self: center; }
+.demo-complete>.brand-logo .brand-symbol { width: .75em; height: .8em; }
+.demo-nutrition { border-bottom-color: var(--secondary); }
+.demo-recovery-bars i { background: linear-gradient(var(--secondary),#19d6c820); }
+.demo-progress-metric strong { color: var(--text); }
+.walk-progress>div { background: var(--progress); }
+.walk-modules button:hover, .walk-controls button:hover, .page-navigation a:hover { color: var(--accent-hover); }
+.walk-modules button:active, .walk-controls button:active { color: var(--accent-pressed); }
+.follow-button:hover { border-color: var(--accent-hover); }
+.body-avatar { fill: var(--surface-raised); stroke: var(--muted); }
+@media(max-width:767px) {
+  .hero-brand { font-size: 30vw; }
+  .navigation .wordmark { font-size: 27px; }
+  .network-center .brand-logo { font-size: 42px; }
+  .closing-brand { font-size: 48px; }
+}

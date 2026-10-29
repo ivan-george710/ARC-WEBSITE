@@ -1,3 +1,4 @@
+import { BrandLogo } from "./BrandLogo";
 import { PhoneScreen } from "./PhoneScreen";
 import type { PhoneScenario, ScreenIndex } from "@/lib/constants/product";
 import type { ReactNode } from "react";
@@ -11,6 +12,6 @@ export function DeviceFrame({ screen = 0, scenario, children, className = "", va
 }) {
   return <div className={`device ${className} device-${variant}`} role={variant === "silhouette" ? undefined : "group"} aria-label={variant === "silhouette" ? undefined : label} aria-hidden={variant === "silhouette" ? true : undefined}>
     <div className="device-island" />
-    {variant === "silhouette" ? <div className="device-reflection"><span>ARC</span></div> : children ?? <PhoneScreen screen={screen} scenario={scenario} legacy={variant === "legacy"} />}
+    {variant === "silhouette" ? <div className="device-reflection"><span><BrandLogo markOnly /></span></div> : children ?? <PhoneScreen screen={screen} scenario={scenario} legacy={variant === "legacy"} />}
   </div>;
 }

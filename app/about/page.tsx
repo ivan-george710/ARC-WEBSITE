@@ -1,9 +1,12 @@
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArcLine } from "@/components/ui/ArcLine";
 import "./about.css";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
+  openGraph: { url: "/about", title: "About ARC — Built around real life.", description: "Four people. One question. The story behind ARC, and why we’re building fitness around life.", images: [{ url: "/brand/og.png", width: 1200, height: 630, alt: "ARC" }] },
   title: "About ARC — Built around real life.",
   description: "Four people. One question. The story behind ARC, and why we’re building fitness around life.",
 };
@@ -34,7 +37,7 @@ export default function About() {
         <p>We wanted to build something that could understand the journey.</p>
         <p>Something that could know when sixty minutes became ten. When a gym became a hotel room. When progress meant pushing harder. And when progress meant knowing when not to.</p>
         <p>Something that could connect training, nutrition, recovery and progress instead of treating them like separate problems.</p>
-        <p className="about-origin">That idea became <span>ARC.</span></p>
+        <p className="about-origin">That idea became <span><BrandLogo /></span></p>
       </div>
 
       <section className="about-origin-moment" aria-labelledby="origin-heading">
@@ -61,6 +64,7 @@ export default function About() {
       </section>
 
       <div className="about-closing">
+        <BrandLogo />
         <h2>WE’RE JUST<br />GETTING STARTED.</h2>
         <p>Find your ARC.</p>
         <Link href="/" className="about-explore">EXPLORE ARC <span aria-hidden="true">&#8594;</span></Link>

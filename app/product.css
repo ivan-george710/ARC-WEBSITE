@@ -3,12 +3,12 @@
   --device-width: 300px;
   width: var(--device-width);
   height: calc(var(--device-width) * 2.18);
-  border-color: #45515b;
+  border-color: var(--line);
   container-type: inline-size;
-  box-shadow: inset 0 0 0 1px #a8b5bc66, 1px 0 0 color-mix(in srgb, var(--accent) 45%, transparent), 20px 40px 80px #0009;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb,var(--muted) 40.00%,transparent), 1px 0 0 color-mix(in srgb, var(--accent) 45%, transparent), 20px 40px 80px #0009;
 }
 .device::before {
-  border-color: color-mix(in srgb, var(--accent) 20%, #7a858a66);
+  border-color: color-mix(in srgb, var(--accent) 20%, color-mix(in srgb,var(--ice) 40.00%,transparent));
 }
 .phone-screen {
   padding: 14px 17px 10px;
@@ -18,7 +18,7 @@
 }
 .phone-kicker {
   display: block;
-  color: #a4b2be;
+  color: var(--muted);
   font-size: 7px;
   letter-spacing: .09em;
   line-height: 1.5;
@@ -39,8 +39,8 @@
 .phone-feature {
   margin-top: 21px;
   padding: 14px 12px;
-  background: linear-gradient(145deg,#202d37a0,#15202980);
-  border-color: #354653;
+  background: linear-gradient(145deg,color-mix(in srgb,var(--surface-raised) 62.75%,transparent),color-mix(in srgb,var(--surface-raised) 50.20%,transparent));
+  border-color: var(--line);
   border-radius: 3px;
 }
 .phone-feature h5 {
@@ -50,7 +50,7 @@
   margin-top: 12px;
 }
 .phone-feature-detail {
-  color: #a6b5c0;
+  color: var(--muted);
   font-size: 9px;
   line-height: 1.55;
   margin-top: 6px;
@@ -70,7 +70,7 @@
   line-height: 1.1;
 }
 .phone-metric>span {
-  color: #9baebf;
+  color: var(--muted);
   font-size: 6px;
   letter-spacing: .08em;
   margin-top: 7px;
@@ -82,7 +82,7 @@
   height: 70px;
   width: 70px;
   fill: none;
-  stroke: #3e505e;
+  stroke: var(--line);
   stroke-width: 1;
 }
 .phone-metric>svg path {
@@ -109,7 +109,7 @@
 .phone-ring {
   width: 104px;
   height: 104px;
-  border-color: #354958;
+  border-color: var(--line);
   border-top-color: var(--accent);
   border-right-color: var(--accent);
   margin: 14px auto;
@@ -119,7 +119,7 @@
 }
 .phone-ring strong span {
   font-size: 6px;
-  color: #b5c3ce;
+  color: var(--muted);
 }
 .phone-row {
   padding: 15px 0;
@@ -130,7 +130,7 @@
 }
 .phone-row>span {
   flex: 1;
-  color: #a8b6c1;
+  color: var(--muted);
 }
 .phone-row strong {
   font-size: 9px;
@@ -152,7 +152,7 @@
   margin-top: auto;
   flex-shrink: 0;
   padding: 17px 0 7px;
-  border-top: 1px solid #34414b80;
+  border-top: 1px solid color-mix(in srgb,var(--line) 50.20%,transparent);
 }
 .phone-nav>span {
   font-size: 6px;
@@ -171,7 +171,7 @@
 .phone-home-indicator {
   width: 33%;
   height: 3px;
-  background: #a2adb5;
+  background: var(--muted);
   margin: 7px auto 0;
   border-radius: 5px;
   flex-shrink: 0;
@@ -187,9 +187,9 @@
 .phone-anatomy svg {
   height: 85px;
   width: 66px;
-  stroke: #8799a8;
+  stroke: var(--muted);
   stroke-width: .7;
-  fill: #3b4b58;
+  fill: var(--surface-raised);
 }
 .phone-anatomy .selected-area {
   fill: color-mix(in srgb, var(--accent) 38%, transparent);
@@ -199,7 +199,7 @@
 .phone-anatomy>span {
   font-size: 10px;
   text-transform: capitalize;
-  color: #d6e1e8;
+  color: var(--text);
 }
 .phone-anatomy>span i {
   display: block;
@@ -219,8 +219,8 @@
 .recovery-steps span {
   flex: 1;
   padding-top: 5px;
-  border-top: 1px solid #45535e;
-  color: #8d9eac;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 7px;
 }
 .recovery-steps .selected {
@@ -240,23 +240,23 @@
 /* The opening and ending carry only a reflection, without rendering an app screen. */
 .device-silhouette {
   border-width: 1px;
-  background: #0a1117;
+  background: var(--surface);
   padding: 5px;
   border-radius: 43px;
-  border-color: #637c9540;
-  box-shadow: 1px 0 2px color-mix(in srgb, var(--accent) 30%, transparent), -15px 0 70px #233c5520;
+  border-color: color-mix(in srgb,var(--ice) 25.10%,transparent);
+  box-shadow: 1px 0 2px color-mix(in srgb, var(--accent) 30%, transparent), -15px 0 70px color-mix(in srgb,var(--ice) 12.55%,transparent);
 }
 .device-reflection {
   height: 100%;
   border-radius: 38px;
-  background: linear-gradient(130deg,#839cb915,#040709 35%,#080d12 85%,#6888aa16);
+  background: linear-gradient(130deg,color-mix(in srgb,var(--muted) 8.24%,transparent),var(--surface) 35%,var(--surface) 85%,color-mix(in srgb,var(--muted) 8.63%,transparent));
   display: grid;
   place-items: center;
 }
 .device-reflection span {
   font-size: 50px;
   letter-spacing: -.08em;
-  color: #b8c9dc20;
+  color: color-mix(in srgb,var(--muted) 12.55%,transparent);
 }
 .hero-device {
   position: absolute;
@@ -272,7 +272,7 @@
 }
 /* The rigid phone is the failure case; the typography and life pressures stay dominant. */
 .phone-screen-legacy {
-  background: linear-gradient(150deg,#232a2f,#11161a);
+  background: linear-gradient(150deg,var(--surface-raised),var(--surface));
 }
 .legacy-screen {
   margin-top: 25px;
@@ -293,11 +293,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  border-top: 1px solid #46515a;
+  border-top: 1px solid var(--line);
 }
 .legacy-plan-row>span {
   font-size: 7px;
-  color: #8897a3;
+  color: var(--muted);
 }
 .legacy-plan-row strong {
   font-size: 16px;
@@ -313,21 +313,21 @@
   gap: 12px;
   font-size: 11px;
   line-height: 1.5;
-  color: #bec8d0;
-  border-top: 1px solid #46515a;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
   padding-top: 18px;
   margin-top: 4px;
 }
 .legacy-warning>span {
   width: 22px;
   height: 22px;
-  border: 1px solid #8c9ca9;
+  border: 1px solid var(--muted);
   border-radius: 50%;
   display: grid;
   place-items: center;
 }
 .legacy-caption {
-  color: #7d8d9a;
+  color: var(--ice);
   font-size: 7px;
   margin: 18px 0 0;
 }

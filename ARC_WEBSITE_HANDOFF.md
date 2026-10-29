@@ -1,5 +1,155 @@
 # ARC website handoff
 
+## Orange atmosphere refinement and publication - 29 October 2026
+
+The final refinement increases only background illumination, plus approved
+production metadata configuration. `app/brand.css` retains the single Home
+background canvas and original base gradient stops, with five broad overlapping
+orange light fields for the opening, developing problem, phone, network and
+final reveal. The gap between product and network remains darker. Field alpha
+ranges from 10% to 19%; large elliptical falloffs avoid bounded circles and
+section seams. The hero's existing halo is warmer. `app/about/about.css` uses
+calmer 9% and 5% orange fields on its existing fixed background.
+
+Copy, typography, logo, page structure, phone UI, mobile layout, GSAP animation,
+22-second sequencing and interactions are unchanged by this refinement.
+
+`app/layout.tsx` now fixes metadataBase to `https://www.arclife.co.in`, sets the
+Home canonical/OG URL, and resolves social image URLs there.
+`app/about/page.tsx` supplies the `/about` canonical and social URL.
+No DNS changes or manual deployment are part of this publication.
+
+The completed brand sync was recorded separately as `3aca3bf` on
+`brand/flutter-identity-sync`. The final refinement also updates this handoff
+and `ARC_BRAND_SYSTEM.md`; the latter's original local-origin limitation is
+superseded by the approved production origin above.
+
+Validation: lint, typecheck, logic tests and production build pass. Browser
+checks cover 320/360/375/390/430 mobile widths, tablet and desktop; all ten
+walkthrough screens, no competing states, pause/replay, reduced motion,
+About loops, route/reset/history behavior and overflow. Visual review covers
+hero, product, network, final and calmer About at desktop/tablet/mobile sizes.
+Before/after refinement screenshots are saved locally in `qa/atmosphere/`.
+Production HTML inspection confirms canonical, OG URL and social image origins
+for both routes. Integration validation/publication details follow below.
+
+Unrelated `.gitignore`, video project directories, film handoffs and generated
+local agent guidance are excluded from the website commits. The Flutter app
+repository and cinematic video projects are untouched.
+
+## Brand synchronization ? 29 October 2026
+
+Implemented locally on `brand/flutter-identity-sync`. No push or deployment.
+The sections below the historical divider preserve the earlier handoff; their
+blue/steel palette descriptions are superseded by this update and
+[ARC_BRAND_SYSTEM.md](ARC_BRAND_SYSTEM.md).
+
+### Source verification
+
+Read the official app at `f5b493292e0c4bb0440c20a72f8923127ea6c2f9` using
+its clean local checkout, whose HEAD matches the GitHub remote HEAD.
+Active wiring is `main.dart` -> `arcUiTheme(arcDarkTheme())` -> `ArcColors.dark`.
+The legacy `arc_theme.dart` palette is not the mounted main theme. Full values,
+file references, asset hashes and adaptation boundaries are in the brand spec.
+The Flutter repository was not modified.
+
+### Before / after
+
+| Before | After |
+| --- | --- |
+| Blue `#5B8BEF`, cool steel copy/surfaces | Verified orange `#FF8A1F`, warm ink `#F4F1EA`, graphite `#101012` / `#1A1A1E` |
+| Text ARC plus decorative dot, curve favicon | Exact official app logo, reusable BrandLogo, source-derived PNG favicon and Apple icon |
+| Cool blue illumination | Continuous warm graphite field with restrained orange illumination |
+| Mostly square blue-tinted phone panels | Rounded glass/metal cards, actual Space Grotesk, peach/orange badges and pill navigation |
+| Four simplified phone tabs | Actual Home / Train / Eat / Recover / You labels and corresponding icon concepts; four storytelling module controls retained |
+| No branded social preview | 1200 x 630 OG image using the official mark, shared by OG and Twitter metadata |
+
+### Changed and removed
+
+- Added `app/brand.css` for palette roles, surfaces, action gradients, hover/
+  pressed adaptations, borders, glows, navigation, chart and progress roles.
+- Migrated literal old cool colors in shared CSS, About, SVG chart/line art and
+  network lines to the shared roles. No blue brand values remain in app,
+  components or lib. Old curve favicon removed; replaced by `app/icon.png`.
+- Copied both official PNG variants without changing bytes. `BrandLogo` uses
+  the exact image alpha mask and app ink tint. ARC lettering is a typographic
+  companion; no separate official wordmark exists in the source.
+- Applied BrandLogo to navigation (also mobile), hero, phone header/reflection,
+  walkthrough closing, network center, About origin/closing, final and footer.
+- Added licensed local Space Grotesk fonts for phone UI and logo lettering.
+  Large cinematic display copy remains Geist.
+- Scaled the camera island and shell radii to the device at small widths;
+  constrained the closing logo to its narrative column after visual review.
+- Added `scripts/build-brand-assets.mjs`, `scripts/verify-brand-browser.mjs`
+  and focused chrome/logo-bound assertions to the existing walkthrough suite.
+
+### Preserved
+
+All six Home story sections, approved copy and anonymous four-person founding
+story, separate `/about`, navigation structure and scroll-reset/history
+behavior, GSAP timelines/eases, cinematic ArcLine geometry, network layout and
+animation, fixed looping About artwork, continuous gradient architecture,
+10 distinct phone screens and the original 22-second playback timing.
+Pause, resume, replay, scroll-away pause, reduced-motion manual controls and
+keyboard menu behavior remain. No backend/authentication or sections added.
+Existing unrelated `.gitignore` and video/film work remains untouched.
+
+### Validation and review artifacts
+
+- `npm.cmd run lint`, `npm.cmd run typecheck`, `npm.cmd test`, and
+  `npm.cmd run build` pass. Static production export contains Home, About,
+  favicon and Apple icon routes.
+- Logic suite: 3 replays / 3,963 sampled frames, exclusive screens/headlines,
+  settled interruption behavior, reduced motion and baseline reset.
+- Production browser suites: `verify-walkthrough-browser.mjs`,
+  `verify-about-browser.mjs`, `verify-about-navigation.mjs`,
+  `verify-brand-browser.mjs` against `http://localhost:3006`.
+- Walkthrough autoplay: desktop 1440x900 and mobile 390x844; all 10 captures,
+  replay/pause/resume and scroll-away behavior. Manual small-screen fixtures:
+  320x568, 360x800, 375x667, 375x812, 390x844, 430x932.
+- Home/brand layouts: 320, 360, 375, 390, 430, 768, 1024, 1440, 1920 widths.
+  About also tested at those widths, including 375x812. Checked no document
+  overflow, readable content, mark bounds, animation loops, active route links,
+  menus, reduced motion, cross-route anchors and zero-offset About paint frames.
+- Before/after PNGs and viewport report: `qa/brand/` (local QA artifacts,
+  ignored by Git). Before views were captured from the pre-overhaul `out/`
+  export before rebuilding it. After views are from the new production export.
+- Main review pairs: `before-1440-hero.png` / `after-1440-hero.png`,
+  `before-390-product.png` / `after-390-product.png`. Additional network,
+  final, About and 320/tablet captures are in the same folder.
+  All ten animated moments are captured in `qa/walkthrough/`; About captures
+  are in `qa/about/`. Screenshots were visually inspected, not just generated.
+
+### Repeat checks / local review
+
+PowerShell: use `npm.cmd` if npm.ps1 execution is blocked. Run a production
+build, then `$env:PORT='3006'; node scripts/serve.mjs`. Point `ARC_QA_URL` to
+that server. If Playwright isn't locally installed, set `PLAYWRIGHT_MODULE`
+to an available Playwright `index.mjs`; browser scripts default to installed
+Microsoft Edge. Set `ARC_QA_BEFORE_URL` only to a retained old build when
+recapturing before images. Do not use the new export as the before reference.
+
+### Remaining boundaries
+
+Phone content remains the approved illustrative walkthrough, not a pixel-for-
+pixel recording of live app state. Current app Eat is a catalogue with a
+My Nutrition view; Recover is a discomfort/care workflow. The approved website
+story and sample progress metrics were retained while matching visual language.
+Teal secondary-data usage and the continuous atmospheric interpolation are
+explicit website mappings; they are not invented app constants. The app has
+no separate official wordmark asset or newly branded native splash in the
+inspected platform launch files. The shared component uses the official symbol
+with text lettering. OG text is rasterized by the host SVG font renderer.
+
+Historical limitation, now resolved: the approved canonical origin is configured
+as `https://www.arclife.co.in`; no production-origin environment variable is required.
+Browser QA used desktop Edge viewport emulation, not physical iOS/Android
+hardware or a GPU performance benchmark. No production change was made.
+
+---
+
+## Historical handoff ? 16 October 2026 (palette superseded)
+
 Updated 16 October 2026. Local repository implementation; no deployment performed.
 
 ## Current experience

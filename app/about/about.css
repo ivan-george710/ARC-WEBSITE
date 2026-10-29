@@ -1,6 +1,6 @@
 /* One quiet editorial composition within ARC's existing visual system. */
-.about-page { position: relative; isolation: isolate; background: linear-gradient(180deg,#050505 0%,#0c1114 24%,#11181c 45%,#090d10 68%,#050505 100%); }
-.about-background { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 80% 40%,#5b8bef08,transparent 75%); }
+.about-page { position: relative; isolation: isolate; background: linear-gradient(180deg,var(--bg) 0%,var(--surface) 24%,var(--shell) 45%,var(--surface) 68%,var(--bg) 100%); }
+.about-background { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse 120% 85% at 85% 25%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 100%), radial-gradient(ellipse 130% 90% at 10% 95%,color-mix(in srgb,var(--accent) 5%,transparent),transparent 100%); }
 .about-background .about-arc { width: 140%; height: 110%; inset: -5% -20%; opacity: .23; }
 .about-background .about-arc path { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2100; animation: about-arc-draw 28s ease-in-out infinite; }
 .about-background .about-arc-rise { animation: about-arc-drift 32s ease-in-out infinite; }
@@ -11,33 +11,33 @@
 .about-editorial { max-width: 1600px; margin: 0 auto; padding: 170px var(--gutter) 150px; }
 .about-opening .eyebrow { color: var(--accent); margin-bottom: 70px; }
 .about-opening h1, .about-opening-answer { font-size: clamp(46px,7.8vw,120px); font-weight: 450; line-height: 1.02; letter-spacing: -.065em; }
-.about-opening h1 { color: #a5b2bc; }
+.about-opening h1 { color: var(--muted); }
 .about-opening-answer { margin-top: clamp(100px,15vw,240px); }
-.about-story { width: min(100%,720px); margin: clamp(140px,18vw,270px) 0 0 auto; font-size: clamp(18px,1.65vw,24px); line-height: 1.8; letter-spacing: -.02em; color: #bfccd5; }
+.about-story { width: min(100%,720px); margin: clamp(140px,18vw,270px) 0 0 auto; font-size: clamp(18px,1.65vw,24px); line-height: 1.8; letter-spacing: -.02em; color: var(--muted); }
 .about-story>p+p { margin-top: 30px; }
-.about-story .about-question { font-size: clamp(32px,3.8vw,58px); line-height: 1.15; font-weight: 450; color: #e8ecee; margin: 35px 0 55px; letter-spacing: -.045em; }
-.about-story .about-story-pivot { font-size: clamp(32px,3.3vw,52px); line-height: 1.3; letter-spacing: -.045em; color: #e8ecee; margin-block: 85px; }
-.about-story-pivot>span { color: #98aec0; }
+.about-story .about-question { font-size: clamp(32px,3.8vw,58px); line-height: 1.15; font-weight: 450; color: var(--text); margin: 35px 0 55px; letter-spacing: -.045em; }
+.about-story .about-story-pivot { font-size: clamp(32px,3.3vw,52px); line-height: 1.3; letter-spacing: -.045em; color: var(--text); margin-block: 85px; }
+.about-story-pivot>span { color: var(--muted); }
 .about-story .about-paragraph-break { margin-top: 95px; }
 .about-story .about-origin { margin-top: 75px; }
-.about-origin>span { display: block; font-size: clamp(100px,15vw,210px); font-weight: 500; letter-spacing: -.08em; line-height: 1.1; color: #e8ecee; margin-top: 20px; }
-.about-origin-moment { margin-top: clamp(130px,18vw,260px); padding-top: 45px; border-top: 1px solid #354653; }
-.about-origin-question { margin-top: 65px; max-width: 1100px; font-size: clamp(32px,4.5vw,70px); line-height: 1.15; letter-spacing: -.045em; color: #bfccd5; }
+.about-origin>span { display: block; font-size: clamp(100px,15vw,210px); font-weight: 500; letter-spacing: -.08em; line-height: 1.1; color: var(--text); margin-top: 20px; }
+.about-origin-moment { margin-top: clamp(130px,18vw,260px); padding-top: 45px; border-top: 1px solid var(--line); }
+.about-origin-question { margin-top: 65px; max-width: 1100px; font-size: clamp(32px,4.5vw,70px); line-height: 1.15; letter-spacing: -.045em; color: var(--muted); }
 .about-one-idea { margin-top: 75px; color: var(--accent); }
 .about-origin-moment h2 { font-size: clamp(35px,4.3vw,68px); }
 .about-shared-idea { margin-top: 24px; font-size: clamp(24px,3.3vw,52px); line-height: 1.2; letter-spacing: -.04em; }
-.about-shared-idea>span { color: #98aec0; }
+.about-shared-idea>span { color: var(--muted); }
 .about-philosophy-story { margin-top: 150px; }
-.about-story .about-understanding { font-size: clamp(32px,3.4vw,50px); line-height: 1.25; color: #e8ecee; margin-top: 45px; letter-spacing: -.045em; }
+.about-story .about-understanding { font-size: clamp(32px,3.4vw,50px); line-height: 1.25; color: var(--text); margin-top: 45px; letter-spacing: -.045em; }
 .about-understanding strong { font-weight: 450; }
 .about-belief { margin-top: clamp(150px,20vw,300px); }
 .about-belief h2 { font-size: clamp(40px,6.6vw,100px); line-height: 1.05; }
-.about-belief>p { margin-top: 70px; font-size: clamp(32px,5.3vw,82px); line-height: 1.5; letter-spacing: -.055em; color: #9eafbc; }
+.about-belief>p { margin-top: 70px; font-size: clamp(32px,5.3vw,82px); line-height: 1.5; letter-spacing: -.055em; color: var(--muted); }
 .about-belief>p>span { color: var(--accent); }
-.about-belief .about-that-is { color: #e8ecee; margin-top: 80px; }
+.about-belief .about-that-is { color: var(--text); margin-top: 80px; }
 .about-closing { margin-top: clamp(150px,22vw,330px); }
 .about-closing h2 { font-size: clamp(42px,7vw,108px); }
-.about-closing>p { margin-top: 45px; font-size: clamp(28px,3.5vw,54px); letter-spacing: -.045em; color: #acbfce; }
+.about-closing>p { margin-top: 45px; font-size: clamp(28px,3.5vw,54px); letter-spacing: -.045em; color: var(--muted); }
 .about-explore { display: inline-flex; align-items: center; gap: 45px; min-height: 48px; margin-top: 50px; font-size: 11px; letter-spacing: .1em; border-bottom: 1px solid var(--accent); }
 .about-explore>span { color: var(--accent); font-size: 24px; transition: transform .25s; }
 .about-explore:hover>span { transform: translateX(5px); }
