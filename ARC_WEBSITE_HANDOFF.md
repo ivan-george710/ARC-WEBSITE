@@ -1,5 +1,46 @@
 # ARC website handoff
 
+## Luxury dark atmosphere correction - 29 October 2026
+
+Implemented on `fix/luxury-dark-atmosphere`. This section supersedes the
+previous request to make the background orange more prominent.
+
+The excess came from five broad overlapping `#FF8A1F` fields at 10-19% alpha,
+plus another centered hero halo. Their accumulated saturation painted much of
+the viewport orange. The correction changes only `app/brand.css` and
+`app/about/about.css`, plus the brand specification and this handoff.
+
+The background now uses dedicated obsidian, warm-black, charcoal, burnt-orange,
+smoked-amber and restrained-reflection tokens, separated from the official
+interactive orange. Three broad fields originate beyond the right edge of
+Home, with a quieter single field on About. The centered hero halo is no longer
+painted. The existing one-canvas page gradient, long falloffs, continuous base
+stops and all animation containers remain. Personalization is near-black;
+product and final lighting read as restrained edge reflections. No added
+layers, canvas, WebGL, animated blur, dependencies or section backgrounds.
+
+Preserved without edits: official logo/artwork and assets, app UI, button/icon
+colors, typography, copy, DOM structure, responsive sizing, navigation, GSAP,
+22-second walkthrough, graph behavior, About loops, accessibility and metadata.
+The phone controls and warm white logo remain the brightest focal points.
+No Flutter or video-project changes; unrelated local work is excluded.
+
+Validation: lint, typecheck, tests and production build pass. Existing browser
+suites check autoplay, all ten exclusive screens, replay/pause, reduced-motion
+controls, small-screen fit, About loops/reset/history and page overflow.
+The responsive suite covers 320/360/375/390/430/768/1024/1440/1920 widths.
+Rendered review additionally captures every Home moment and product/
+personalization/network boundaries at 320, 390, 768 and 1440 widths.
+Before/after images are retained locally in `qa/luxury-dark/` (ignored by Git).
+Visual review checked the official brand artwork, readable phone UI, dominant
+near-black environment, no centered blobs/bands, and continuous boundaries.
+Physical-device/GPU performance benchmarking was not performed; the correction
+adds no animated effects and reduces painted gradient fields.
+
+Publication: integrate this verified branch into main normally after fetching;
+retain newer legitimate changes and do not force-push. The final task report
+records the resulting commit and automatic Vercel deployment status.
+
 ## Orange atmosphere refinement and publication - 29 October 2026
 
 The final refinement increases only background illumination, plus approved

@@ -26,7 +26,18 @@
   --button-gradient: linear-gradient(135deg, var(--accent-top) 0%, var(--accent-mid) 45%, var(--accent) 100%);
   --glass-gradient: linear-gradient(135deg, var(--surface-raised) 0%, #0c0c0e 50%, #08080a 100%);
   --panel-gradient: linear-gradient(135deg, var(--surface-raised), var(--surface));
-  --story-gradient: linear-gradient(180deg, var(--bg) 0%, #080809 13%, var(--surface) 29%, #141210 42%, #090808 56%, #080809 62%, #131211 74%, #0d0c0b 83%, #070707 92%, var(--bg) 100%);
+  /* Background-only studio palette. Never substitute these for UI accents. */
+  --atmosphere-obsidian: #070606;
+  --atmosphere-black: #0d0908;
+  --atmosphere-charcoal: #15100e;
+  --atmosphere-burnt: #3a190d;
+  --atmosphere-amber: #54240e;
+  --atmosphere-reflection: #78320f;
+  --atmosphere-opening: color-mix(in srgb, var(--atmosphere-burnt) 28%, transparent);
+  --atmosphere-product: color-mix(in srgb, var(--atmosphere-amber) 32%, transparent);
+  --atmosphere-closing: color-mix(in srgb, var(--atmosphere-reflection) 26%, transparent);
+  --atmosphere-about: color-mix(in srgb, var(--atmosphere-burnt) 18%, transparent);
+  --story-gradient: linear-gradient(180deg, var(--atmosphere-obsidian) 0%, var(--atmosphere-black) 13%, var(--atmosphere-charcoal) 29%, var(--atmosphere-black) 42%, var(--atmosphere-obsidian) 56%, var(--atmosphere-obsidian) 62%, var(--atmosphere-black) 74%, var(--atmosphere-black) 83%, var(--atmosphere-obsidian) 92%, var(--bg) 100%);
 }
 .brand-logo { display: inline-flex; align-items: center; gap: .26em; color: var(--text); line-height: 1; vertical-align: middle; }
 .brand-symbol { display: block; flex: none; width: .85em; height: .91em; background: currentColor; mask: url('/brand/logo-white.png') center / contain no-repeat; }
@@ -40,17 +51,15 @@
 .about-origin .brand-logo { font-size: inherit; }
 .about-closing>.brand-logo { margin-bottom: 40px; font-size: 60px; }
 .network-center .brand-logo { font-size: .8em; }
-/* Broad, overlapping light fields share one page-sized canvas. Their edges
-   dissolve across chapters; no section backgrounds or moving blur layers. */
+/* One dark studio environment. Light origins stay outside the right edge;
+   the long falloffs bridge chapters without centered halos or section fills. */
 .home-page { background:
-  radial-gradient(ellipse 130% 16% at 18% 5%, #ff8a1f24, transparent 100%),
-  radial-gradient(ellipse 115% 22% at 32% 27%, #ff8a1f1a, transparent 100%),
-  radial-gradient(ellipse 105% 19% at 80% 43%, #ff8a1f30, transparent 100%),
-  radial-gradient(ellipse 125% 18% at 42% 75%, #ff8a1f24, transparent 100%),
-  radial-gradient(ellipse 115% 14% at 72% 98%, #ff8a1f30, transparent 100%),
+  radial-gradient(ellipse 110% 16% at 125% 4%, var(--atmosphere-opening), transparent 100%),
+  radial-gradient(ellipse 85% 19% at 120% 42%, var(--atmosphere-product), transparent 100%),
+  radial-gradient(ellipse 100% 24% at 120% 94%, var(--atmosphere-closing), transparent 100%),
   var(--story-gradient); }
-.hero-orbit .arc-line { filter: drop-shadow(0 0 7px var(--glow)); }
-.orbit-halo { background: radial-gradient(ellipse,#ff8a1f24,transparent 80%); box-shadow: 0 -1px 50px #ff8a1f10; }
+.hero-orbit .arc-line { filter: drop-shadow(0 0 7px var(--atmosphere-opening)); }
+.orbit-halo { background: none; box-shadow: none; }
 .nav-panel { background: var(--surface); }
 .network-orbit { border-color: #ff8a1f24; }
 .network-connections line, .network-mobile-connections { stroke: var(--accent); stroke-opacity: .32; }

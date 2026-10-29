@@ -83,15 +83,35 @@ brand color. The chart in `lib/widgets/bklit_area_chart.dart` takes its colors
 from callers rather than defining a universal chart palette. Website chart
 and recovery illustrations are presentation mappings, not copied app data.
 
-The continuous home field retains the original percentage stops
-0/13/29/42/56/62/74/83/92/100. Its graphite and warm-black interpolation
-colors and low-opacity orange light fields are website atmospheric adaptations.
-They are painted once across Home, not separately on each scene. The final
-29 October refinement increases the five broad orange fields to alpha
-0x24 / 0x1A / 0x30 / 0x24 / 0x30, centered at 18% 5%, 32% 27%,
-80% 43%, 42% 75%, and 72% 98%, respectively. About uses calmer 9% and 5%
-orange fields. These changes affect atmosphere only, not product glow tokens.
-About has one continuous dark page gradient and fixed looping orange line art.
+### Background-only studio atmosphere (current)
+
+The official interactive orange remains `#FF8A1F`. It is not a large-area
+atmospheric gradient stop. Background tokens in `app/brand.css` are separate:
+
+| Token | Value | Role |
+| --- | --- | --- |
+| `--atmosphere-obsidian` | `#070606` | Predominantly black page environment |
+| `--atmosphere-black` | `#0D0908` | Warm shadow interpolation |
+| `--atmosphere-charcoal` | `#15100E` | Smoked graphite depth |
+| `--atmosphere-burnt` | `#3A190D` | Faint opening/About illumination |
+| `--atmosphere-amber` | `#54240E` | Restrained device-edge reflection |
+| `--atmosphere-reflection` | `#78320F` | Slightly warmer closing reflection |
+
+Opening uses burnt orange at 28% alpha, product smoked amber at 32%,
+closing reflection at 26%, About burnt orange at 18%. These percentages mix
+already-dark pigments with transparency; they are not bright brand-orange
+opacities. All light origins remain outside the right edge (120-125% x).
+Three static, very broad falloffs span Home. The last softly reaches the
+network and ending; the middle narrative returns to obsidian. About has one
+quieter fixed field. The old centered hero halo is unpainted; its existing
+animated container remains. No section fill, blur surface or animation is added.
+
+The continuous base retains stops 0/13/29/42/56/62/74/83/92/100, now using
+the background-only black/graphite tokens and blending to the existing body
+black at the footer. This replaces the five overlapping bright-orange fields
+introduced in the preceding refinement. The earlier illumination proved too
+prominent in rendered review. Do not restore saturated `#FF8A1F` washes.
+About's looping ARC line and graph accents retain their official brand color.
 
 ## Typography and spacing
 
