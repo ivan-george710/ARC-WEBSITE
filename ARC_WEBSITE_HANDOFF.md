@@ -31,7 +31,21 @@ About loops, route/reset/history behavior and overflow. Visual review covers
 hero, product, network, final and calmer About at desktop/tablet/mobile sizes.
 Before/after refinement screenshots are saved locally in `qa/atmosphere/`.
 Production HTML inspection confirms canonical, OG URL and social image origins
-for both routes. Integration validation/publication details follow below.
+for both routes.
+
+Integration record:
+- Brand synchronization: `3aca3bf4ba2e177c582397d53db1e54925427e27`.
+- Final refinement: `bdd9d45ce28a0e14bdc734854079c0c2e393d1cd`.
+- Fetched remote main: `11155823a455174432a8aa392fffc370bc825bc4`.
+- Integration merge on main: `cdbb0b933a17862a555c891197e4ef9d39b0a58e`.
+- Integration was conflict-free; source matches the verified feature branch.
+- Lint, typecheck, logic tests and production build were rerun successfully
+  after the merge. The responsive brand browser suite was rerun against that
+  production export. No force-push or branch-protection bypass was used.
+- This documentation commit follows the integration merge so its exact SHA
+  can be recorded without a self-referential commit hash. The final push and
+  deployment results are reported in the task completion message; no manual
+  Vercel deployment is triggered.
 
 Unrelated `.gitignore`, video project directories, film handoffs and generated
 local agent guidance are excluded from the website commits. The Flutter app
